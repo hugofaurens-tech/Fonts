@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Horizon Immobilier — Alex Moreau, agent immobilier</title>
+  <meta name="description" content="Alex Moreau, agent immobilier indépendant : achat, vente, estimation gratuite et accompagnement personnalisé à Bordeaux et ses alentours.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2314171c'/%3E%3Cpath d='M8 17l8-7 8 7v7H8z' fill='%23c8a46a'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============ NAVIGATION ============ -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#accueil" class="nav__logo">HORIZON<span>immobilier</span></a>
+      <nav class="nav__links" id="navLinks" aria-label="Navigation principale">
+        <a href="#biens">Biens</a>
+        <a href="#services">Services</a>
+        <a href="#apropos">À propos</a>
+        <a href="#avis">Avis</a>
+        <a href="#estimation">Estimation</a>
+        <a href="#contact" class="btn btn--small">Contact</a>
+      </nav>
+      <button class="nav__burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="accueil">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="container hero__content">
+        <p class="eyebrow">Agent immobilier indépendant · Bordeaux</p>
+        <h1 class="hero__title">
+          <span class="outlined">Votre projet</span>
+          mérite un horizon
+        </h1>
+        <p class="hero__lead">Achat, vente, estimation : un accompagnement sur mesure, de la première visite jusqu'à la remise des clés.</p>
+
+        <form class="search" id="heroSearch" role="search">
+          <label>
+            <span>Type</span>
+            <select name="type">
+              <option value="all">Tous les biens</option>
+              <option value="maison">Maison</option>
+              <option value="appartement">Appartement</option>
+              <option value="terrain">Terrain</option>
+            </select>
+          </label>
+          <label>
+            <span>Transaction</span>
+            <select name="transaction">
+              <option value="all">Achat &amp; location</option>
+              <option value="vente">Achat</option>
+              <option value="location">Location</option>
+            </select>
+          </label>
+          <label>
+            <span>Budget max</span>
+            <select name="budget">
+              <option value="0">Sans limite</option>
+              <option value="250000">250 000 €</option>
+              <option value="500000">500 000 €</option>
+              <option value="800000">800 000 €</option>
+            </select>
+          </label>
+          <button class="btn" type="submit">Rechercher</button>
+        </form>
+      </div>
+
+      <div class="container stats">
+        <div class="stat"><strong data-count="15">0</strong><span>ans d'expérience</span></div>
+        <div class="stat"><strong data-count="320">0</strong><span>biens vendus</span></div>
+        <div class="stat"><strong data-count="98" data-suffix="%">0</strong><span>clients satisfaits</span></div>
+        <div class="stat"><strong data-count="45" data-suffix=" j">0</strong><span>délai moyen de vente</span></div>
+      </div>
+    </section>
+
+    <!-- ============ BIENS ============ -->
+    <section class="section" id="biens">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <p class="eyebrow">Sélection</p>
+            <h2 class="section__title">Biens à la une</h2>
+          </div>
+          <div class="filters" role="group" aria-label="Filtrer les biens">
+            <button class="chip is-active" data-filter="all">Tous</button>
+            <button class="chip" data-filter="maison">Maisons</button>
+            <button class="chip" data-filter="appartement">Appartements</button>
+            <button class="chip" data-filter="terrain">Terrains</button>
+          </div>
+        </div>
+
+        <div class="grid" id="propertyGrid" aria-live="polite"></div>
+        <p class="empty" id="emptyState" hidden>Aucun bien ne correspond à votre recherche. <a href="#contact">Contactez-moi</a> : de nombreux biens sont proposés en off-market.</p>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="section section--alt" id="services">
+      <div class="container">
+        <p class="eyebrow">Ce que je fais pour vous</p>
+        <h2 class="section__title">Services</h2>
+        <div class="services">
+          <article class="service">
+            <span class="service__num">01</span>
+            <h3>Vente</h3>
+            <p>Mise en valeur professionnelle (photos, visite virtuelle), diffusion ciblée et négociation pour vendre au meilleur prix.</p>
+          </article>
+          <article class="service">
+            <span class="service__num">02</span>
+            <h3>Achat</h3>
+            <p>Recherche personnalisée, accès aux biens off-market et accompagnement jusqu'à la signature chez le notaire.</p>
+          </article>
+          <article class="service">
+            <span class="service__num">03</span>
+            <h3>Estimation</h3>
+            <p>Estimation gratuite et argumentée sous 48 h, basée sur les ventes réelles du quartier.</p>
+          </article>
+          <article class="service">
+            <span class="service__num">04</span>
+            <h3>Gestion locative</h3>
+            <p>Recherche de locataires solvables, états des lieux, encaissement des loyers et suivi administratif.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ À PROPOS ============ -->
+    <section class="section" id="apropos">
+      <div class="container about">
+        <div class="about__media">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" alt="Portrait d'Alex Moreau" loading="lazy">
+          <div class="about__badge">
+            <strong>Carte T</strong>
+            <span>CCI Bordeaux</span>
+          </div>
+        </div>
+        <div class="about__text">
+          <p class="eyebrow">À propos</p>
+          <h2 class="section__title">Alex Moreau</h2>
+          <p class="lead">Né à Bordeaux, je connais chaque rue, chaque marché, chaque école de la métropole.</p>
+          <p>Après dix ans en réseau national, j'ai fondé Horizon Immobilier pour offrir un service plus humain : un seul interlocuteur, disponible, transparent sur les prix et engagé sur les résultats.</p>
+          <ul class="checks">
+            <li>Mandats simples ou exclusifs, sans frais cachés</li>
+            <li>Compte rendu après chaque visite</li>
+            <li>Réseau de notaires, courtiers et artisans de confiance</li>
+          </ul>
+          <a href="#contact" class="btn">Prendre rendez-vous</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ AVIS ============ -->
+    <section class="section section--dark" id="avis">
+      <div class="container">
+        <p class="eyebrow">Ils m'ont fait confiance</p>
+        <h2 class="section__title">Avis clients</h2>
+        <div class="slider" id="slider">
+          <div class="slider__track">
+            <blockquote class="quote">
+              <p>« Maison vendue en trois semaines, au prix demandé. Un suivi irréprochable du début à la fin. »</p>
+              <cite>Claire &amp; Thomas — Vente à Mérignac</cite>
+            </blockquote>
+            <blockquote class="quote">
+              <p>« Alex a trouvé notre appartement avant même qu'il soit publié. Réactivité et conseils précieux. »</p>
+              <cite>Sofiane — Achat aux Chartrons</cite>
+            </blockquote>
+            <blockquote class="quote">
+              <p>« Une estimation juste et argumentée, sans promesses irréalistes. Je recommande les yeux fermés. »</p>
+              <cite>Martine — Estimation à Pessac</cite>
+            </blockquote>
+          </div>
+          <div class="slider__dots" role="tablist" aria-label="Choisir un avis"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ESTIMATION ============ -->
+    <section class="section section--alt" id="estimation">
+      <div class="container estimate">
+        <div>
+          <p class="eyebrow">Gratuit &amp; sans engagement</p>
+          <h2 class="section__title">Estimez votre bien</h2>
+          <p>Obtenez une première fourchette indicative instantanément, puis une estimation précise après visite.</p>
+        </div>
+        <form class="card form" id="estimateForm">
+          <div class="form__row">
+            <label>Type de bien
+              <select name="type" required>
+                <option value="appartement">Appartement</option>
+                <option value="maison">Maison</option>
+              </select>
+            </label>
+            <label>Surface (m²)
+              <input type="number" name="surface" min="10" max="2000" placeholder="85" required>
+            </label>
+          </div>
+          <div class="form__row">
+            <label>Secteur
+              <select name="zone" required>
+                <option value="5200">Bordeaux centre</option>
+                <option value="4300">Métropole</option>
+                <option value="3000">Périphérie</option>
+              </select>
+            </label>
+            <label>État
+              <select name="etat" required>
+                <option value="1.1">Refait à neuf</option>
+                <option value="1" selected>Bon état</option>
+                <option value="0.85">Travaux à prévoir</option>
+              </select>
+            </label>
+          </div>
+          <button class="btn btn--full" type="submit">Calculer</button>
+          <output class="estimate__result" id="estimateResult" aria-live="polite"></output>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section" id="contact">
+      <div class="container contact">
+        <div>
+          <p class="eyebrow">Parlons de votre projet</p>
+          <h2 class="section__title">Contact</h2>
+          <ul class="contact__info">
+            <li><span>Téléphone</span><a href="tel:+33600000000">06 00 00 00 00</a></li>
+            <li><span>E-mail</span><a href="mailto:contact@horizon-immobilier.fr">contact@horizon-immobilier.fr</a></li>
+            <li><span>Agence</span>12 cours de l'Intendance, 33000 Bordeaux</li>
+            <li><span>Horaires</span>Lun – Sam, 9 h – 19 h</li>
+          </ul>
+        </div>
+        <form class="card form" id="contactForm" novalidate>
+          <div class="form__row">
+            <label>Nom
+              <input type="text" name="nom" autocomplete="name" required>
+            </label>
+            <label>Téléphone
+              <input type="tel" name="tel" autocomplete="tel">
+            </label>
+          </div>
+          <label>E-mail
+            <input type="email" name="email" autocomplete="email" required>
+          </label>
+          <label>Votre projet
+            <select name="projet" id="projetSelect">
+              <option>Je souhaite vendre</option>
+              <option>Je souhaite acheter</option>
+              <option>Je souhaite louer</option>
+              <option>Demande d'estimation</option>
+              <option>Autre</option>
+            </select>
+          </label>
+          <label>Message
+            <textarea name="message" rows="4" id="messageField" required></textarea>
+          </label>
+          <button class="btn btn--full" type="submit">Envoyer</button>
+          <p class="form__status" id="formStatus" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="#accueil" class="nav__logo">HORIZON<span>immobilier</span></a>
+      <p>© <span id="year"></span> Horizon Immobilier · Carte professionnelle CPI 3301 0000 0000 000 · <a href="#">Mentions légales</a> · <a href="#">Barème des honoraires</a></p>
+    </div>
+  </footer>
+
+  <!-- Fenêtre détail d'un bien -->
+  <dialog class="modal" id="modal">
+    <button class="modal__close" id="modalClose" aria-label="Fermer">×</button>
+    <div id="modalBody"></div>
+  </dialog>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
