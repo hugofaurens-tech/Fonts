@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demande envoyée — Sébastien Faurens</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/img/logo-sf-noir.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="contact">
+  <script>
+    if (new URLSearchParams(location.search).get("demande") === "estimation") document.body.dataset.page = "estimation";
+  </script>
+  <header class="header" id="site-header"></header>
+  <script src="js/data.js"></script>
+  <script src="js/layout.js" defer></script>
+
+  <main class="thanks">
+    <div class="container">
+      <img src="assets/icons/succes.png" alt="">
+      <h1>Demande envoyée avec succès !</h1>
+      <p><span id="merci-texte">Merci pour votre demande de prise de contact.</span><br>Je reviens vers vous dans les 24 heures ouvrés.</p>
+      <a href="index.html">retour vers la page d’accueil</a>
+    </div>
+  </main>
+
+  <footer class="footer" id="site-footer"></footer>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

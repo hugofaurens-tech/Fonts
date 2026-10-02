@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Estimation immobilière gratuite à Paris 17ème et en Île-de-France — Sébastien Faurens</title>
+  <meta name="description" content="Estimation immobilière gratuite à Paris 17ème et en Île-de-France. Obtenez en 24 heures une évaluation précise du prix de vente de votre appartement, maison ou immeuble.">
+  <link rel="icon" href="assets/img/logo-sf-noir.png">
+  <link rel="preload" href="assets/fonts/montserrat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="estimation">
+  <header class="header" id="site-header"></header>
+  <script src="js/data.js"></script>
+  <script src="js/layout.js" defer></script>
+
+  <main>
+    <section class="hero hero--center" style="background-image:url('assets/img/hero-estimation.jpg')">
+      <div class="container hero__content">
+        <h1 class="hero__title"><span class="gold">Quelle est la valeur</span><span class="light">de votre bien immobilier?</span></h1>
+        <p class="hero__text">Estimation immobilière gratuite à Paris 17ème et Île-de-France. Obtenez en 24 heures une évaluation précise du prix de vente de votre appartement, maison ou immeuble.</p>
+        <div class="hero__actions"><a href="#estimer" class="btn">Lancer l’estimation</a></div>
+      </div>
+    </section>
+
+    <section class="section section--grey">
+      <div class="container">
+        <h2 class="title">Estimez votre bien en 3 étapes</h2>
+        <p class="subtitle">De l'estimation à la signature, je vous guide à chaque étape de la vente<br>de votre bien à Paris 17ème et en Île-de-France.</p>
+        <div class="steps">
+          <div class="step-card">
+            <div class="step-card__icon"><span class="step-card__num">1</span><img src="assets/icons/panneau.png" alt=""></div>
+            <h3>Estimation immobilière</h3>
+            <p>Analyse comparative de votre bien basée sur les prix du marché parisien et les ventes récentes du quartier</p>
+          </div>
+          <div class="step-card">
+            <div class="step-card__icon"><span class="step-card__num">2</span><img src="assets/icons/loupe.png" alt=""></div>
+            <h3>Stratégie de valorisation</h3>
+            <p>Analyse comparative de votre bien basée sur les prix du marché parisien et les ventes récentes du quartier</p>
+          </div>
+          <div class="step-card">
+            <div class="step-card__icon"><span class="step-card__num">3</span><img src="assets/icons/maison.png" alt=""></div>
+            <h3>Vente accompagnée</h3>
+            <p>Accompagnement complet de la mise en ligne à la signature : visites qualifiées, négociation et suivi notaire</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="estimer">
+      <ol class="stepper" aria-label="Progression">
+        <li>1</li><li>2</li><li>3</li><li>4</li>
+      </ol>
+
+      <form id="form-estimation" novalidate>
+        <!-- Étape 1 -->
+        <div class="step">
+          <h2 class="step__title container">Quel type de bien souhaitez-vous faire estimer ?</h2>
+          <p class="step__intro">Sélectionnez la catégorie qui correspond à votre bien pour obtenir une estimation précise adaptée au marché immobilier local.</p>
+          <div class="form-zone">
+            <fieldset class="choices" data-auto>
+              <legend class="sr-only">Type de bien</legend>
+              <label><input type="radio" name="type_de_bien" value="Appartement" required><span>Appartement</span></label>
+              <label><input type="radio" name="type_de_bien" value="Maison"><span>Maison</span></label>
+              <label><input type="radio" name="type_de_bien" value="Immeuble"><span>Immeuble</span></label>
+              <label><input type="radio" name="type_de_bien" value="Commerce"><span>Commerce</span></label>
+            </fieldset>
+          </div>
+        </div>
+
+        <!-- Étape 2 -->
+        <div class="step" hidden>
+          <h2 class="step__title container">Où se situe votre bien et quelles sont ses caractéristiques ?</h2>
+          <p class="step__intro">L'adresse, la surface et la configuration sont les critères clés pour estimer au plus juste le prix de vente de votre bien immobilier.</p>
+          <div class="form-zone fields">
+            <label>Adresse du bien<input name="adresse" placeholder="Ex. 12 rue des Batignolles" autocomplete="street-address" required></label>
+            <label class="w2">Code postal<input name="code_postal" placeholder="Ex. 75017" inputmode="numeric" pattern="[0-9]{5}" autocomplete="postal-code" required></label>
+            <label class="w4">Ville<input name="ville" placeholder="Paris" autocomplete="address-level2" required></label>
+            <label class="w2">Surface du bien<input name="surface" placeholder="Ex. 65m2" required></label>
+            <label class="w2">Nombre de pièces<input name="pieces" placeholder="Ex. 4" inputmode="numeric"></label>
+            <label class="w2">Étage<input name="etage" placeholder="Ex. 2ème"></label>
+          </div>
+          <div class="form-zone step__nav">
+            <button type="button" class="btn btn--ghost" data-prev>Retour</button>
+            <button type="button" class="btn" data-next>Suivant</button>
+          </div>
+        </div>
+
+        <!-- Étape 3 -->
+        <div class="step" hidden>
+          <h2 class="step__title container">Dans quel état général se trouve votre bien selon vous ?</h2>
+          <p class="step__intro">Le niveau de prestations et l'état d'entretien influencent directement la valeur de votre bien sur le marché parisien. L’état général du bien sera défini après visite.</p>
+          <div class="form-zone">
+            <fieldset class="choices choices--3">
+              <legend class="sr-only">État général</legend>
+              <label><input type="radio" name="etat" value="À rénover" required><span>À rénover</span></label>
+              <label><input type="radio" name="etat" value="Bon"><span>Bon</span></label>
+              <label><input type="radio" name="etat" value="Excellent"><span>Excellent</span></label>
+            </fieldset>
+          </div>
+          <div class="form-zone step__nav" style="margin-top:4.8rem">
+            <button type="button" class="btn btn--ghost" data-prev>Retour</button>
+            <button type="button" class="btn" data-next>Suivant</button>
+          </div>
+        </div>
+
+        <!-- Étape 4 -->
+        <div class="step" hidden>
+          <h2 class="step__title container">Recevez votre estimation immobilière gratuite sous 24h</h2>
+          <p class="step__intro">Laissez vos coordonnées et je vous envoie une évaluation<br>détaillée et confidentielle de votre bien, sans engagement.</p>
+          <div class="form-zone fields">
+            <label>Prénom<input name="prenom" autocomplete="given-name" required></label>
+            <label>Nom<input name="nom" autocomplete="family-name" required></label>
+            <label>Téléphone<input type="tel" name="telephone" autocomplete="tel" required></label>
+            <label>Email<input type="email" name="email" autocomplete="email" required></label>
+          </div>
+          <div class="form-zone step__nav" style="margin-top:3.5rem">
+            <button type="button" class="btn btn--ghost" data-prev>Retour</button>
+            <button type="submit" class="btn">Envoyer</button>
+          </div>
+          <p class="form-error" id="estimation-erreur" hidden>L’envoi n’a pas abouti. Réessayez ou appelez-moi directement.</p>
+        </div>
+      </form>
+    </section>
+
+    <section class="section section--dark">
+      <div class="container">
+        <h2 class="title">Pourquoi faire estimer votre bien avec moi ?</h2>
+        <p class="subtitle">Une expertise immobilière locale, rapide et gratuite pour connaître la juste valeur de votre appartement ou maison à Paris 17ème et en Île-de-France.</p>
+        <div class="perks">
+          <div class="perk">
+            <div class="perk__icon"><img src="assets/icons/chrono.png" alt=""></div>
+            <h3>Estimation immobilière sous 24h</h3>
+            <p>Recevez une évaluation détaillée de votre appartement ou maison à Paris et en Île-de-France, basée sur les prix du marché local et les ventes récentes du quartier.</p>
+          </div>
+          <div class="perk">
+            <div class="perk__icon"><img src="assets/icons/bulle-ok.png" alt=""></div>
+            <h3>Estimation gratuite et sans engagement</h3>
+            <p>Aucun frais caché, aucune obligation de mise en vente : bénéficiez d'une expertise immobilière indépendante, transparente et 100% confidentielle.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--light">
+      <div class="container">
+        <h2 class="title">Ce que mes clients disent de moi</h2>
+        <p class="subtitle">Parce que parfois, c'est la voix des autres qui nous aide à oser.</p>
+        <div class="stars" aria-label="5 étoiles sur 5">
+          <img src="assets/icons/etoile.png" alt=""><img src="assets/icons/etoile.png" alt=""><img src="assets/icons/etoile.png" alt=""><img src="assets/icons/etoile.png" alt=""><img src="assets/icons/etoile.png" alt="">
+        </div>
+        <div class="reviews" data-avis="3,1,0,2">
+          <div class="reviews__list"></div>
+          <div class="dots"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="site-footer"></footer>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

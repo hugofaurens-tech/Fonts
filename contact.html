@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — Sébastien Faurens, agent immobilier Century 21</title>
+  <meta name="description" content="Une question, un projet, une estimation ? Contactez Sébastien Faurens, agent immobilier Century 21 à Paris 17ème. Réponse garantie sous 24h.">
+  <link rel="icon" href="assets/img/logo-sf-noir.png">
+  <link rel="preload" href="assets/fonts/montserrat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="contact">
+  <header class="header" id="site-header"></header>
+  <script src="js/data.js"></script>
+  <script src="js/layout.js" defer></script>
+
+  <main>
+    <section class="hero hero--center" style="background-image:url('assets/img/hero-contact.jpg')">
+      <div class="container hero__content">
+        <h1 class="hero__title"><span class="gold">Prenez contact</span><br>dès maintenant</h1>
+        <p class="hero__text">Une question, un projet, une estimation…<br>Laissez moi vos coordonnées et je vous rappelle.</p>
+        <div class="hero__actions"><a href="#formulaire" class="btn">Je me lance !</a></div>
+      </div>
+    </section>
+
+    <section class="section" id="formulaire">
+      <h2 class="title">Comment ça marche ?</h2>
+      <p class="subtitle">Remplissez les champs ci-dessous afin d’avoir le maximum d’informations.</p>
+
+      <div class="contact-grid">
+        <form class="contact-form" id="form-contact" novalidate>
+          <div class="row">
+            <label class="line-field"><span>Prénom</span><input name="prenom" autocomplete="given-name" required></label>
+            <label class="line-field"><span>Nom</span><input name="nom" autocomplete="family-name" required></label>
+          </div>
+          <div class="row">
+            <label class="line-field"><span>Téléphone</span><input type="tel" name="telephone" autocomplete="tel" required></label>
+            <label class="line-field"><span>Email</span><input type="email" name="email" autocomplete="email" required></label>
+          </div>
+          <label class="line-field"><span class="sr-only">Type de projet</span>
+            <select name="projet" required>
+              <option value="" selected disabled>Type de projet</option>
+              <option value="vente">Je souhaite vendre</option>
+              <option value="achat">Je souhaite acheter</option>
+              <option value="estimation">Je souhaite faire estimer mon bien</option>
+              <option value="location">Je souhaite louer</option>
+              <option value="autre">Autre demande</option>
+            </select>
+          </label>
+          <label class="line-field"><span>Message</span><textarea name="message" rows="5"></textarea></label>
+          <button type="submit" class="btn">Envoyer mon message</button>
+          <p class="form-error" id="contact-erreur" hidden>L’envoi n’a pas abouti. Réessayez ou appelez-moi directement.</p>
+        </form>
+
+        <aside class="contact-side">
+          <div class="side-card">
+            <img src="assets/icons/chrono.png" alt="">
+            <h2>Réponse garantie sous 24h</h2>
+          </div>
+          <div class="side-card">
+            <h2>Mes coordoonées</h2>
+            <ul>
+              <li><img src="assets/icons/telephone.png" alt="Téléphone" style="width:34px"><a id="contact-tel"></a></li>
+              <li><img src="assets/icons/email.png" alt="Email"><a id="contact-mail"></a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="site-footer"></footer>
+  <script>
+    document.getElementById("contact-tel").textContent = SITE.telephone;
+    document.getElementById("contact-tel").href = "tel:" + SITE.telephone.replace(/\s/g, "");
+    document.getElementById("contact-mail").textContent = SITE.email;
+    document.getElementById("contact-mail").href = "mailto:" + SITE.email;
+  </script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

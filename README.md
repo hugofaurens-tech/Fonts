@@ -1,6 +1,33 @@
-# Horizon Immobilier — site vitrine d'agent immobilier
+# Site de Sébastien Faurens — Agent immobilier Century 21
 
-Site statique (HTML / CSS / JavaScript, sans dépendance) qui utilise les polices **Horizon** et **Horizon Outlined** du dépôt.
+Site vitrine statique (HTML / CSS / JavaScript, sans dépendance), reproduit d'après les maquettes.
+
+## Pages
+
+| Fichier | Page |
+|---|---|
+| `index.html` | Accueil |
+| `biens.html` / `biens-vendus.html` | Biens en vente / vendus (filtres + pagination) |
+| `estimation.html` | Estimation en 4 étapes |
+| `contact.html` | Formulaire de contact |
+| `merci.html` | Confirmation après envoi d'un formulaire |
+
+## Modifier le contenu
+
+Presque tout se change dans **`js/data.js`** :
+
+- `SITE` : nom, téléphone, e-mail, adresse, WhatsApp, Instagram, LinkedIn
+- `BIENS` : les annonces (statut `vente` ou `vendu`, prix, surface, photo…)
+- `AVIS` : les avis clients (3 par page, les points de navigation s'ajoutent automatiquement)
+
+Les photos des biens se placent dans `assets/img/`.
+
+## Recevoir les formulaires par e-mail
+
+1. Créez un formulaire gratuit sur [formspree.io](https://formspree.io).
+2. Copiez l'adresse fournie (ex. `https://formspree.io/f/abcdwxyz`) dans `formEndpoint` de `js/data.js`.
+
+Tant que `formEndpoint` est vide, les formulaires affichent la page de confirmation **sans rien envoyer**.
 
 ## Aperçu local
 
@@ -9,25 +36,6 @@ python3 -m http.server 8000
 # puis ouvrir http://localhost:8000
 ```
 
-## Contenu
+## Polices
 
-- **Accueil** : accroche, moteur de recherche (type, transaction, budget) et chiffres clés animés
-- **Biens** : annonces filtrables, avec une fiche détaillée en fenêtre modale et un bouton « Demander une visite » qui pré-remplit le formulaire de contact
-- **Services** : vente, achat, estimation et gestion locative
-- **À propos** : présentation de l'agent
-- **Avis clients** : carrousel automatique
-- **Estimation** : calculateur de fourchette de prix indicative
-- **Contact** : coordonnées et formulaire avec validation
-
-## Personnalisation
-
-| À modifier | Où |
-|---|---|
-| Annonces (prix, photos, descriptions) | tableau `PROPERTIES` dans `js/main.js` |
-| Nom, textes, coordonnées, n° de carte pro | `index.html` |
-| Couleurs et polices | variables `:root` dans `css/style.css` |
-| Prix au m² du calculateur | attributs `value` du champ « Secteur » dans `index.html` |
-| Envoi réel du formulaire | gestionnaire `#contactForm` dans `js/main.js` (Formspree, Netlify Forms…) |
-
-> Le nom de l'agent, les annonces, les avis et les coordonnées sont des exemples fictifs à remplacer.
-> Les photos proviennent d'Unsplash (chargées en ligne).
+Crimson Pro (titres), Kumbh Sans (texte) et Montserrat (titres en capitales, boutons), hébergées dans `assets/fonts/`.
