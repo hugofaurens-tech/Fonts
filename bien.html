@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bien immobilier — Sébastien Faurens</title>
+  <meta name="description" content="Découvrez ce bien immobilier proposé par Sébastien Faurens, agent immobilier Century 21 à Paris et en Île-de-France.">
+  <link rel="icon" href="assets/img/logo-sf-noir.png">
+  <link rel="preload" href="assets/fonts/montserrat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="biens">
+  <header class="header" id="site-header"></header>
+  <script src="js/data.js"></script>
+  <script src="js/layout.js" defer></script>
+
+  <main id="fiche">
+    <nav class="breadcrumb" aria-label="Fil d’Ariane">
+      <a href="index.html">Accueil</a> &gt; <a href="biens.html" id="fil-liste">Biens à vendre</a> &gt; <span id="fil-titre"></span>
+    </nav>
+
+    <section class="product">
+      <div class="container">
+        <a href="biens.html" class="back" id="retour">&larr;&nbsp; Retour aux biens</a>
+
+        <div class="gallery">
+          <div class="gallery__main">
+            <img id="photo-principale" src="" alt="">
+            <span class="card__tag" id="statut"></span>
+            <button type="button" class="gallery__arrow gallery__arrow--prev" aria-label="Photo précédente">&#8249;</button>
+            <button type="button" class="gallery__arrow gallery__arrow--next" aria-label="Photo suivante">&#8250;</button>
+          </div>
+          <div class="gallery__thumbs" id="vignettes"></div>
+        </div>
+
+        <div class="product__grid">
+          <div class="product__head">
+            <h1 class="product__title" id="titre"></h1>
+            <p class="product__address" id="adresse"><img src="assets/icons/pin.png" alt=""><span></span></p>
+            <ul class="product__specs" id="specs"></ul>
+          </div>
+
+          <aside class="price-box">
+            <p class="price-box__label">Prix de vente</p>
+            <p class="price-box__price" id="prix"></p>
+            <p class="price-box__sub" id="prix-m2"></p>
+            <a class="btn price-box__btn" id="btn-visite" href="contact.html">Demander une visite</a>
+            <a class="btn btn--outline price-box__btn" id="btn-tel" href="#"><img src="assets/icons/telephone-or.png" alt="">Contactez moi</a>
+          </aside>
+
+          <div class="product__main">
+            <section id="bloc-description">
+              <h2 class="product__h2">Description du bien</h2>
+              <p class="product__text" id="description"></p>
+            </section>
+            <section id="bloc-points">
+              <h2 class="product__h2">Les points forts du bien</h2>
+              <ul class="highlights" id="points-forts"></ul>
+            </section>
+            <section id="bloc-equipements">
+              <h2 class="product__h2">Équipements et services</h2>
+              <ul class="amenities" id="equipements"></ul>
+            </section>
+          </div>
+
+          <aside class="features-list" id="bloc-caracteristiques">
+            <h2 class="product__h2">Caractéristiques</h2>
+            <dl id="caracteristiques"></dl>
+          </aside>
+        </div>
+
+        <section class="product__district" id="bloc-quartier">
+          <h2 class="product__h2">Quelques mots sur le quartier</h2>
+          <div class="product__text" id="quartier"></div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section interest">
+      <div class="container">
+        <h2 class="title">Ce bien vous intéresse ?</h2>
+        <p class="subtitle">Je vous accompagne personnellement pour organiser une visite, répondre à<br>vos questions et, si ce bien vous convient, vous guider jusqu'à la signature.</p>
+        <div class="actions"><a href="contact.html" class="btn btn--line" id="btn-visite-2">Demander une visite</a></div>
+      </div>
+    </section>
+
+    <section class="section section--dark similar" id="similaires">
+      <div class="container">
+        <h2 class="title title--left">Biens similaires à la vente</h2>
+        <div class="cards" id="liste-similaires"></div>
+        <div class="actions"><a href="biens.html" class="btn btn--big btn--dark">Voir d’autres biens</a></div>
+      </div>
+    </section>
+  </main>
+
+  <section class="thanks" id="introuvable" hidden>
+    <div class="container">
+      <h1>Ce bien n’est plus disponible</h1>
+      <p>Il a peut-être été vendu ou retiré de la vente.</p>
+      <a href="biens.html">voir les biens en vente</a>
+    </div>
+  </section>
+
+  <footer class="footer" id="site-footer"></footer>
+  <script src="js/main.js" defer></script>
+  <script src="js/bien.js" defer></script>
+</body>
+</html>

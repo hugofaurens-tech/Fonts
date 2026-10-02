@@ -11,7 +11,7 @@ function carteBien(b) {
         <img src="${b.photo}" alt="${b.titre} — ${b.ville}" loading="lazy">
         <span class="card__tag">${b.statut === "vendu" ? "Vendu" : "En vente"}</span>
       </div>
-      <h3 class="card__title">${b.titre}</h3>
+      <h3 class="card__title"><a href="bien.html?id=${b.id}">${b.titre}</a></h3>
       <p class="card__loc"><img src="assets/icons/pin.png" alt="">${b.ville} - ${b.quartier}</p>
       <p class="card__price">${euros(b.prix)}</p>
       <ul class="card__specs">
@@ -180,8 +180,10 @@ if (estimation) {
 /* ---------- Contact ---------- */
 const contact = $("#form-contact");
 if (contact) {
-  const projet = new URLSearchParams(location.search).get("projet");
-  if (projet) contact.projet.value = projet;
+  const params = new URLSearchParams(location.search);
+  if (params.get("projet")) contact.projet.value = params.get("projet");
+  const bien = BIENS.find((b) => b.id === params.get("bien"));
+  if (bien) contact.message.value = `Bonjour, je souhaiterais visiter le bien « ${bien.titre} » (${bien.ville}, ${euros(bien.prix)}).`;
 
   contact.addEventListener("submit", async (e) => {
     e.preventDefault();

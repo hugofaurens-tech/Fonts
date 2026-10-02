@@ -8,6 +8,7 @@ Site vitrine statique (HTML / CSS / JavaScript, sans dépendance), reproduit d'a
 |---|---|
 | `index.html` | Accueil |
 | `biens.html` / `biens-vendus.html` | Biens en vente / vendus (filtres + pagination) |
+| `bien.html?id=…` | Page d'un bien (galerie, prix, caractéristiques, quartier, biens similaires) |
 | `estimation.html` | Estimation en 4 étapes |
 | `contact.html` | Formulaire de contact |
 | `merci.html` | Confirmation après envoi d'un formulaire |
@@ -17,7 +18,7 @@ Site vitrine statique (HTML / CSS / JavaScript, sans dépendance), reproduit d'a
 Presque tout se change dans **`js/data.js`** :
 
 - `SITE` : nom, téléphone, e-mail, adresse, WhatsApp, Instagram, LinkedIn
-- `BIENS` : les annonces (statut `vente` ou `vendu`, prix, surface, photo…)
+- `BIENS` : les annonces (statut `vente` ou `vendu`, prix, surface, photo…). Chaque bien a un `id` unique qui sert d'adresse à sa page. Les champs détaillés (galerie `photos`, `description`, `pointsForts`, `equipements`, `quartierTexte`, charges…) sont facultatifs : une rubrique vide n'apparaît pas.
 - `AVIS` : les avis clients (3 par page, les points de navigation s'ajoutent automatiquement)
 
 Les photos des biens se placent dans `assets/img/`.

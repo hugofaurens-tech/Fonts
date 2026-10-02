@@ -23,43 +23,70 @@ const SITE = {
 };
 
 /* ---------- Biens ----------
-   statut : "vente" ou "vendu"
-   type   : "appartement", "maison", "loft", "immeuble"…
-   photo  : chemin de l'image dans assets/img/                    */
+   id        : identifiant unique, utilisé dans l'adresse de la page (bien.html?id=...)
+   statut    : "vente" ou "vendu"
+   type      : "appartement", "maison", "loft", "immeuble"…
+   photo     : image de la carte (dossier assets/img/)
+   photos    : galerie de la page du bien (facultatif)
+   Tous les champs après "dpe" sont facultatifs : une rubrique vide
+   n'apparaît simplement pas sur la page du bien.                     */
 const BIENS = [
   {
-    statut: "vente", type: "appartement",
+    id: "style-haussmannien", statut: "vente", type: "appartement",
     titre: "Style Haussmanien", ville: "Paris 17ème", quartier: "Batignolles",
     prix: 1350000, surface: 120, pieces: 4, dpe: "C",
     photo: "assets/img/bien-haussmannien.jpg",
   },
   {
-    statut: "vente", type: "appartement",
-    titre: "Duplex avec terrasse", ville: "Levallois-Perret", quartier: "Planchette",
-    prix: 850000, surface: 95, pieces: 3, dpe: "B",
+    id: "duplex-terrasse", statut: "vente", type: "appartement",
+    titre: "Duplex avec terrasse", ville: "Paris 16ème", quartier: "Trocadéro",
+    prix: 950000, surface: 95, pieces: 3, dpe: "B",
     photo: "assets/img/bien-duplex.jpg",
+    photos: [
+      "assets/img/duplex-terrasse-1.jpg",
+      "assets/img/duplex-terrasse-2.jpg",
+      "assets/img/duplex-terrasse-3.jpg",
+      "assets/img/duplex-terrasse-4.jpg",
+      "assets/img/bien-duplex.jpg",
+    ],
+    adresse: "Avenue Georges Mandel, 75016 Paris",
+    chambres: 2, sallesDeBain: 2, etage: 3, annee: 1975, chauffage: "Électrique",
+    charges: 240, taxeFonciere: 1420,
+    description: "Rare à la vente, magnifique duplex en dernier étage avec terrasse privative de 25 m² exposée sud-ouest. Séjour lumineux prolongé par une cuisine américaine équipée, deux chambres spacieuses, salle de bains et dressing. Prestations haut de gamme, matériaux nobles, parking et cave en sous-sol.",
+    pointsForts: [
+      "Terrasse privative 25 m² exposée sud-ouest",
+      "Dernier étage sans vis-à-vis",
+      "Parking en sous-sol inclus",
+      "Résidence récente 2002",
+    ],
+    equipements: ["Ascenseur", "Parking", "Cave", "Terrasse", "Climatisation", "Fibre"],
+    quartierTexte: [
+      "Nichée dans le cœur du très prisé 16e arrondissement, l'avenue Georges Mandel est l'une des adresses les plus élégantes de Paris. Ses immeubles haussmanniens aux façades soignées, son large terre-plein arboré et sa proximité immédiate avec le Trocadéro et la Tour Eiffel en font un cadre de vie d'exception.",
+      "Le quartier offre toutes les commodités à portée de main : boulangeries, fromageries, cavistes et belles tables se concentrent rue de la Pompe, tandis que le marché de Passy satisfait les plus exigeants. La station de métro Trocadéro (lignes 6 et 9) permet de rejoindre le centre de Paris en quelques minutes seulement.",
+      "Un quartier résidentiel calme, verdoyant et sécurisé, où il fait bon vivre au quotidien.",
+    ],
   },
   {
-    statut: "vente", type: "appartement",
+    id: "studio-design", statut: "vente", type: "appartement",
     titre: "Studio design", ville: "Paris 8ème", quartier: "Champs Elysées",
     prix: 450000, surface: 32, pieces: 1, dpe: "D",
     photo: "assets/img/bien-studio.jpg",
   },
   // Exemples de biens vendus (reprennent les visuels de la maquette — à remplacer)
   {
-    statut: "vendu", type: "appartement",
+    id: "style-haussmannien-vendu", statut: "vendu", type: "appartement",
     titre: "Style Haussmanien", ville: "Paris 17ème", quartier: "Batignolles",
     prix: 1350000, surface: 120, pieces: 4, dpe: "C",
     photo: "assets/img/bien-haussmannien.jpg",
   },
   {
-    statut: "vendu", type: "appartement",
+    id: "duplex-vendu", statut: "vendu", type: "appartement",
     titre: "Duplex avec terrasse", ville: "Levallois-Perret", quartier: "Planchette",
     prix: 850000, surface: 95, pieces: 3, dpe: "B",
     photo: "assets/img/bien-duplex.jpg",
   },
   {
-    statut: "vendu", type: "appartement",
+    id: "studio-design-vendu", statut: "vendu", type: "appartement",
     titre: "Studio design", ville: "Paris 8ème", quartier: "Champs Elysées",
     prix: 450000, surface: 32, pieces: 1, dpe: "D",
     photo: "assets/img/bien-studio.jpg",
