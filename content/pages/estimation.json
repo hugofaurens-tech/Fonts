@@ -1,0 +1,60 @@
+{
+  "hero": {
+    "image": "assets/img/hero-estimation.jpg",
+    "titre_or": "Quelle est la valeur",
+    "titre": "de votre bien immobilier?",
+    "texte": "Estimation immobilière gratuite à Paris 17ème et Île-de-France. Obtenez en 24 heures une évaluation précise du prix de vente de votre appartement, maison ou immeuble.",
+    "bouton": "Lancer l’estimation"
+  },
+  "etapes": {
+    "titre": "Estimez votre bien en 3 étapes",
+    "sous_titre": "De l'estimation à la signature, je vous guide à chaque étape de la vente\nde votre bien à Paris 17ème et en Île-de-France.",
+    "items": [
+      {
+        "icone": "assets/icons/panneau.png",
+        "titre": "Estimation immobilière",
+        "texte": "Analyse comparative de votre bien basée sur les prix du marché parisien et les ventes récentes du quartier"
+      },
+      {
+        "icone": "assets/icons/loupe.png",
+        "titre": "Stratégie de valorisation",
+        "texte": "Analyse comparative de votre bien basée sur les prix du marché parisien et les ventes récentes du quartier"
+      },
+      {
+        "icone": "assets/icons/maison.png",
+        "titre": "Vente accompagnée",
+        "texte": "Accompagnement complet de la mise en ligne à la signature : visites qualifiées, négociation et suivi notaire"
+      }
+    ]
+  },
+  "formulaire": {
+    "etape1_titre": "Quel type de bien souhaitez-vous faire estimer ?",
+    "etape1_texte": "Sélectionnez la catégorie qui correspond à votre bien pour obtenir une estimation précise adaptée au marché immobilier local.",
+    "etape2_titre": "Où se situe votre bien et quelles sont ses caractéristiques ?",
+    "etape2_texte": "L'adresse, la surface et la configuration sont les critères clés pour estimer au plus juste le prix de vente de votre bien immobilier.",
+    "etape3_titre": "Dans quel état général se trouve votre bien selon vous ?",
+    "etape3_texte": "Le niveau de prestations et l'état d'entretien influencent directement la valeur de votre bien sur le marché parisien. L’état général du bien sera défini après visite.",
+    "etape4_titre": "Recevez votre estimation immobilière gratuite sous 24h",
+    "etape4_texte": "Laissez vos coordonnées et je vous envoie une évaluation\ndétaillée et confidentielle de votre bien, sans engagement."
+  },
+  "pourquoi": {
+    "titre": "Pourquoi faire estimer votre bien avec moi ?",
+    "sous_titre": "Une expertise immobilière locale, rapide et gratuite pour connaître la juste valeur de votre appartement ou maison à Paris 17ème et en Île-de-France.",
+    "items": [
+      {
+        "icone": "assets/icons/chrono.png",
+        "titre": "Estimation immobilière sous 24h",
+        "texte": "Recevez une évaluation détaillée de votre appartement ou maison à Paris et en Île-de-France, basée sur les prix du marché local et les ventes récentes du quartier."
+      },
+      {
+        "icone": "assets/icons/bulle-ok.png",
+        "titre": "Estimation gratuite et sans engagement",
+        "texte": "Aucun frais caché, aucune obligation de mise en vente : bénéficiez d'une expertise immobilière indépendante, transparente et 100% confidentielle."
+      }
+    ]
+  },
+  "avis": {
+    "titre": "Ce que mes clients disent de moi",
+    "sous_titre": "Parce que parfois, c'est la voix des autres qui nous aide à oser."
+  }
+}

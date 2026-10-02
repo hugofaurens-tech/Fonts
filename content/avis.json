@@ -1,0 +1,24 @@
+{
+  "avis": [
+    {
+      "nom": "Marie-Claire T.",
+      "lieu": "Paris 17e",
+      "texte": "Sébastien a vendu notre appartement en moins de 3 semaines, au prix que nous souhaitions. Son calme et sa transparence tout au long du processus nous ont vraiment rassurés. On recommande sans hésitation."
+    },
+    {
+      "nom": "François & Isabelle D.",
+      "lieu": "Levallois-Perret",
+      "texte": "Nous avions déjà tenté de vendre seuls pendant quatre mois sans succès. Sébastien a repositionné le prix, repris les photos et restructuré l'annonce. Résultat : deux offres en dix jours. On regrette de ne pas l'avoir appelé plus tôt."
+    },
+    {
+      "nom": "Thomas & Camille B.",
+      "lieu": "Neuilly-sur-Seine",
+      "texte": "Nous cherchions depuis six mois sans trouver le bon bien. Sébastien a pris le temps de vraiment comprendre notre projet avant de nous proposer des visites. Il ne nous a pas fait perdre de temps avec des biens hors critères. On a trouvé notre appartement dès la troisième visite."
+    },
+    {
+      "nom": "Natali.S",
+      "lieu": "Paris 17e",
+      "texte": "Estimation précise et accompagnement professionnel. Notre appartement s'est vendu au prix estimé en moins de 3 semaines."
+    }
+  ]
+}

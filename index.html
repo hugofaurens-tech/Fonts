@@ -9,107 +9,77 @@
   <link rel="preload" href="assets/fonts/montserrat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body data-page="accueil">
+<!-- Les textes et images de cette page se modifient dans le back-office (content/pages/accueil.json) -->
+<body data-page="accueil" data-content="accueil" class="cms-loading">
   <header class="header" id="site-header"></header>
-  <script src="js/data.js"></script>
-  <script src="js/layout.js" defer></script>
 
   <main>
-    <section class="hero hero--center" style="background-image:url('assets/img/hero-accueil.jpg')">
+    <section class="hero hero--center" data-bg="hero.image">
       <div class="container hero__content">
-        <h1 class="hero__title">Votre bien<br>votre projet<br><span class="gold">mon engagement</span></h1>
-        <p class="hero__lead">Sébastien Faurens<br>Agent immobilier en Île-de-France</p>
+        <h1 class="hero__title"><span data-t="hero.titre"></span><br><span class="gold" data-t="hero.titre_or"></span></h1>
+        <p class="hero__lead" data-t="hero.sous_titre"></p>
         <div class="hero__actions">
-          <a href="biens.html" class="btn">Voir les biens</a>
-          <a href="estimation.html" class="btn btn--outline">Estimer mon bien</a>
+          <a href="biens.html" class="btn" data-t="hero.bouton_biens"></a>
+          <a href="estimation.html" class="btn btn--outline" data-t="hero.bouton_estimation"></a>
         </div>
       </div>
     </section>
 
     <section class="stats" aria-label="Chiffres clés">
-      <ul class="container">
-        <li><strong>+10</strong><span>Années d'expériences</span></li>
-        <li><strong>+100</strong><span>Biens vendus</span></li>
-        <li><strong>+50</strong><span>Clients satisfaits</span></li>
+      <ul class="container" data-list="chiffres">
+        <template><li><strong data-t="nombre"></strong><span data-t="libelle"></span></li></template>
       </ul>
     </section>
 
     <section class="section" id="pourquoi">
       <div class="container">
-        <h2 class="title">Pourquoi me choisir ?</h2>
-        <div class="features">
-          <div class="feature">
-            <div class="feature__icon"><img src="assets/icons/maison-or.png" alt=""></div>
-            <h3>Expertise locale</h3>
-            <p>Une connaissance approfondie du marché parisien et de l'Île-de-France pour valoriser au mieux votre bien.</p>
-          </div>
-          <div class="feature">
-            <div class="feature__icon"><img src="assets/icons/conseiller.png" alt=""></div>
-            <h3>Accompagnement personnalisé</h3>
-            <p>Un suivi sur-mesure à chaque étape de votre projet, de l'estimation à la signature.</p>
-          </div>
-          <div class="feature">
-            <div class="feature__icon"><img src="assets/icons/century21.png" alt=""></div>
-            <h3>Réseau Century 21</h3>
-            <p>La force d'un réseau national au service de votre projet immobilier local.</p>
-          </div>
+        <h2 class="title" data-t="pourquoi.titre"></h2>
+        <div class="features" data-list="pourquoi.atouts">
+          <template>
+            <div class="feature">
+              <div class="feature__icon"><img data-img="icone" alt=""></div>
+              <h3 data-t="titre"></h3>
+              <p data-t="texte"></p>
+            </div>
+          </template>
         </div>
-        <div class="actions"><a href="contact.html" class="btn">Prendre RDV</a></div>
+        <div class="actions"><a href="contact.html" class="btn" data-t="pourquoi.bouton"></a></div>
       </div>
     </section>
 
     <section class="section section--light">
       <div class="container">
-        <h2 class="title">Biens d’exception</h2>
-        <p class="subtitle">Découvrez une sélection de biens en Île-de-France</p>
+        <h2 class="title" data-t="selection.titre"></h2>
+        <p class="subtitle" data-t="selection.sous_titre"></p>
         <div class="cards" id="selection"></div>
-        <div class="actions"><a href="biens.html" class="btn">Voir les biens</a></div>
+        <div class="actions"><a href="biens.html" class="btn" data-t="selection.bouton"></a></div>
       </div>
     </section>
 
     <section class="section section--dark">
       <div class="container">
-        <h2 class="title">Confiez la gestion de votre bien</h2>
-        <p class="subtitle">Bénéficiez d'une estimation précise, d'une stratégie de vente personnalisée et d'un accompagnement complet pour vendre votre bien dans les meilleures conditions.</p>
-        <div class="benefits">
-          <div class="benefit">
-            <div class="benefit__icon"><img src="assets/icons/cible.png" alt=""></div>
-            <div>
-              <h3>Un prix juste dès le premier jour</h3>
-              <p>Un bien mal estimé reste sur le marché. Un bien surestimé fait fuir les acheteurs sérieux, un bien sous-estimé vous fait perdre de l'argent. Grâce à ma connaissance fine du marché en Île-de-France et à mon accès aux données de transactions réelles, je fixe le bon prix dès la mise en vente — celui qui attire les offres sans sacrifier votre patrimoine.</p>
+        <h2 class="title" data-t="gestion.titre"></h2>
+        <p class="subtitle" data-t="gestion.sous_titre"></p>
+        <div class="benefits" data-list="gestion.avantages">
+          <template>
+            <div class="benefit">
+              <div class="benefit__icon"><img data-img="icone" alt=""></div>
+              <div>
+                <h3 data-t="titre"></h3>
+                <p data-t="texte"></p>
+              </div>
             </div>
-          </div>
-          <div class="benefit">
-            <div class="benefit__icon"><img src="assets/icons/megaphone.png" alt=""></div>
-            <div>
-              <h3>Une visibilité que vous ne pouvez pas avoir seul</h3>
-              <p>Vendre entre particuliers, c'est publier une annonce. Vendre avec moi, c'est activer un réseau. Votre bien est diffusé sur les plus grandes plateformes immobilières, promu auprès de mon portefeuille d'acquéreurs actifs, et relayé via le réseau national Century 21.<br>Votre bien est vu par les bons acheteurs, au bon moment.</p>
-            </div>
-          </div>
-          <div class="benefit">
-            <div class="benefit__icon"><img src="assets/icons/bouclier.png" alt=""></div>
-            <div>
-              <h3>Zéro stress, zéro perte de temps</h3>
-              <p>Gérer une vente seul, c'est des dizaines d'appels à filtrer, des visites à organiser, des négociations à mener et des documents juridiques à maîtriser. Je prends en charge l'intégralité du processus, de la première visite jusqu'à la signature chez le notaire, pour que vous n'ayez qu'une chose à faire : préparer votre prochain projet.</p>
-            </div>
-          </div>
-          <div class="benefit">
-            <div class="benefit__icon"><img src="assets/icons/poignee-de-main.png" alt=""></div>
-            <div>
-              <h3>Un engagement de résultat, pas de moyens</h3>
-              <p>Je ne suis rémunéré qu'à la vente conclue. Mon intérêt est donc exactement aligné avec le vôtre : vendre vite, au meilleur prix, dans les meilleures conditions. Pas de frais cachés, pas de promesses vagues — un accompagnement transparent de A à Z, avec un interlocuteur unique joignable 7j/7.</p>
-            </div>
-          </div>
+          </template>
         </div>
-        <p class="punchline">Votre bien mérite mieux qu'une annonce,<br><strong>il mérite une stratégie.</strong></p>
-        <div class="actions"><a href="estimation.html" class="btn">Faire une estimation gratuite</a></div>
+        <p class="punchline"><span data-t="gestion.phrase"></span><br><strong data-t="gestion.phrase_or"></strong></p>
+        <div class="actions"><a href="estimation.html" class="btn" data-t="gestion.bouton"></a></div>
       </div>
     </section>
 
     <section class="section section--light">
       <div class="container">
-        <h2 class="title">Ce que mes clients disent de moi</h2>
-        <p class="subtitle">Parce que parfois, c'est la voix des autres qui nous aide à oser.</p>
+        <h2 class="title" data-t="avis.titre"></h2>
+        <p class="subtitle" data-t="avis.sous_titre"></p>
         <div class="stars" aria-label="5 étoiles sur 5">
           <img src="assets/icons/etoile.png" alt=""><img src="assets/icons/etoile.png" alt=""><img src="assets/icons/etoile.png" alt=""><img src="assets/icons/etoile.png" alt=""><img src="assets/icons/etoile.png" alt="">
         </div>
@@ -117,13 +87,15 @@
           <div class="reviews__list"></div>
           <div class="dots"></div>
         </div>
-        <p class="cta-line">Vous aussi, faites de votre projet <strong>une réussite.</strong></p>
-        <div class="actions"><a href="contact.html" class="btn">C’est parti !</a></div>
+        <p class="cta-line"><span data-t="avis.phrase"></span> <strong data-t="avis.phrase_or"></strong></p>
+        <div class="actions"><a href="contact.html" class="btn" data-t="avis.bouton"></a></div>
       </div>
     </section>
   </main>
 
   <footer class="footer" id="site-footer"></footer>
+  <script src="js/cms.js" defer></script>
+  <script src="js/layout.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 /* En-tête, pied de page et bouton WhatsApp communs à toutes les pages.
-   Les textes viennent de js/data.js. */
-(function () {
+   Les textes viennent de content/site.json (modifiable dans le back-office). */
+CMS.pret.then(function () {
+  const e = CMS.echapper;
   const page = document.body.dataset.page; // accueil | biens | estimation | contact
   const tel = SITE.telephone.replace(/\s/g, "");
   const nav = [
@@ -11,9 +12,9 @@
   ];
 
   const logo = (variant) => `
-    <a href="index.html" class="logo logo--${variant}" aria-label="${SITE.nom} — accueil">
+    <a href="index.html" class="logo logo--${variant}" aria-label="${e(SITE.nom)} — accueil">
       <img src="assets/img/logo-sf-${variant === "light" ? "blanc" : "noir"}.png" alt="" width="62" height="76">
-      <span><strong>${SITE.nom}</strong>${SITE.sousTitre}</span>
+      <span><strong>${e(SITE.nom)}</strong>${e(SITE.sousTitre)}</span>
     </a>`;
 
   document.getElementById("site-header").innerHTML = `
@@ -30,8 +31,8 @@
     <div class="container footer__grid">
       <div>
         ${logo("light")}
-        <p class="footer__slogan">${SITE.slogan}</p>
-        <p class="footer__desc">${SITE.description}</p>
+        <p class="footer__slogan">${CMS.texte(SITE.slogan)}</p>
+        <p class="footer__desc">${CMS.texte(SITE.description)}</p>
         <ul class="footer__legal">
           <li><a href="#">Mentions légales</a></li>
           <li><a href="#">Conditions générales d’utilisation</a></li>
@@ -51,18 +52,18 @@
       <div>
         <h2 class="footer__title">Contact</h2>
         <ul class="footer__links footer__contact">
-          <li>${SITE.agence}</li>
-          ${SITE.adresse.map((l) => `<li>${l}</li>`).join("")}
-          <li class="gap">Ligne directe :&nbsp; <a href="tel:${tel}">${SITE.telephone}</a></li>
-          <li><a href="mailto:${SITE.email}">${SITE.email}</a></li>
+          <li>${e(SITE.agence)}</li>
+          ${(SITE.adresse || []).map((l) => `<li>${e(l)}</li>`).join("")}
+          <li class="gap">Ligne directe :&nbsp; <a href="tel:${tel}">${e(SITE.telephone)}</a></li>
+          <li><a href="mailto:${e(SITE.email)}">${e(SITE.email)}</a></li>
         </ul>
         <div class="socials">
-          <a href="${SITE.instagram}" target="_blank" rel="noopener" aria-label="Instagram"><img src="assets/icons/instagram.png" alt=""></a>
-          <a href="${SITE.linkedin}" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="assets/icons/linkedin.png" alt=""></a>
+          <a href="${e(SITE.instagram)}" target="_blank" rel="noopener" aria-label="Instagram"><img src="assets/icons/instagram.png" alt=""></a>
+          <a href="${e(SITE.linkedin)}" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="assets/icons/linkedin.png" alt=""></a>
         </div>
       </div>
     </div>
-    <p class="footer__copy">© ${new Date().getFullYear()} ${SITE.copyright}</p>`;
+    <p class="footer__copy">© ${new Date().getFullYear()} ${e(SITE.copyright)}</p>`;
 
   const wa = document.createElement("a");
   wa.className = "whatsapp";
@@ -85,4 +86,4 @@
       burger.setAttribute("aria-expanded", "false");
     })
   );
-})();
+});

@@ -1,0 +1,18 @@
+{
+  "hero": {
+    "image": "assets/img/hero-contact.jpg",
+    "titre_or": "Prenez contact",
+    "titre": "dès maintenant",
+    "texte": "Une question, un projet, une estimation…\nLaissez moi vos coordonnées et je vous rappelle.",
+    "bouton": "Je me lance !"
+  },
+  "formulaire": {
+    "titre": "Comment ça marche ?",
+    "sous_titre": "Remplissez les champs ci-dessous afin d’avoir le maximum d’informations.",
+    "bouton": "Envoyer mon message"
+  },
+  "encarts": {
+    "delai": "Réponse garantie sous 24h",
+    "coordonnees": "Mes coordonnées"
+  }
+}

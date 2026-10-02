@@ -1,5 +1,6 @@
-/* Page d'un bien : remplie à partir de js/data.js selon ?id=... dans l'adresse. */
-(function () {
+/* Page d'un bien : remplie à partir de content/biens.json selon ?id=... dans l'adresse. */
+CMS.pret.then(function () {
+  const e = CMS.echapper;
   const id = new URLSearchParams(location.search).get("id");
   const bien = BIENS.find((b) => b.id === id);
 
@@ -42,7 +43,7 @@
     const suivantes = [1, 2, 3].map((k) => (courante + k) % photos.length).filter((j) => j !== courante);
     const uniques = [...new Set(suivantes)];
     vignettes.innerHTML = uniques.map((j) =>
-      `<button type="button" data-photo="${j}" aria-label="Voir la photo ${j + 1}"><img src="${photos[j]}" alt="" loading="lazy"></button>`
+      `<button type="button" data-photo="${j}" aria-label="Voir la photo ${j + 1}"><img src="${e(photos[j])}" alt="" loading="lazy"></button>`
     ).join("");
   }
   vignettes.addEventListener("click", (e) => {
@@ -66,7 +67,7 @@
     bien.chambres && ["lit", pluriel(bien.chambres, "chambre")],
     bien.sallesDeBain && ["baignoire", `${bien.sallesDeBain} salle${bien.sallesDeBain > 1 ? "s" : ""} de bain`],
   ].filter(Boolean);
-  $("#specs").innerHTML = specs.map(([icone, texte]) => `<li><img src="assets/icons/${icone}.png" alt="">${texte}</li>`).join("");
+  $("#specs").innerHTML = specs.map(([icone, texte]) => `<li><img src="assets/icons/${icone}.png" alt="">${e(texte)}</li>`).join("");
 
   // Prix
   $("#prix").textContent = euros(bien.prix);
@@ -84,16 +85,14 @@
 
   // Rubriques facultatives
   const remplir = (bloc, ok, fn) => { if (ok) fn(); else $(bloc).hidden = true; };
-  remplir("#bloc-description", bien.description, () => ($("#description").textContent = bien.description));
+  remplir("#bloc-description", bien.description, () => ($("#description").innerHTML = CMS.paragraphes(bien.description)));
   remplir("#bloc-points", bien.pointsForts && bien.pointsForts.length, () => {
-    $("#points-forts").innerHTML = bien.pointsForts.map((p) => `<li><img src="assets/icons/check.png" alt="">${p}</li>`).join("");
+    $("#points-forts").innerHTML = bien.pointsForts.map((p) => `<li><img src="assets/icons/check.png" alt="">${e(p)}</li>`).join("");
   });
   remplir("#bloc-equipements", bien.equipements && bien.equipements.length, () => {
-    $("#equipements").innerHTML = bien.equipements.map((e) => `<li>${e}</li>`).join("");
+    $("#equipements").innerHTML = bien.equipements.map((x) => `<li>${e(x)}</li>`).join("");
   });
-  remplir("#bloc-quartier", bien.quartierTexte && bien.quartierTexte.length, () => {
-    $("#quartier").innerHTML = bien.quartierTexte.map((p) => `<p>${p}</p>`).join("");
-  });
+  remplir("#bloc-quartier", bien.quartierTexte, () => ($("#quartier").innerHTML = CMS.paragraphes(bien.quartierTexte)));
 
   const caracteristiques = [
     ["surface", "Surface habitable", `${bien.surface} m2`],
@@ -110,7 +109,7 @@
   $("#caracteristiques").innerHTML = caracteristiques.map(([icone, label, valeur]) => `
     <div class="${icone ? "" : "no-icon"}">
       ${icone ? `<img src="assets/icons/${icone}.png" alt="">` : ""}
-      <dt>${label}</dt><dd>${valeur}</dd>
+      <dt>${label}</dt><dd>${e(valeur)}</dd>
     </div>`).join("");
 
   // Biens similaires : même type d'abord, puis les autres biens en vente
@@ -121,4 +120,4 @@
   } else {
     $("#similaires").hidden = true;
   }
-})();
+});

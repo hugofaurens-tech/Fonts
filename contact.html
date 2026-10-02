@@ -9,23 +9,22 @@
   <link rel="preload" href="assets/fonts/montserrat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body data-page="contact">
+<!-- Les textes et images de cette page se modifient dans le back-office (content/pages/contact.json) -->
+<body data-page="contact" data-content="contact" class="cms-loading">
   <header class="header" id="site-header"></header>
-  <script src="js/data.js"></script>
-  <script src="js/layout.js" defer></script>
 
   <main>
-    <section class="hero hero--center" style="background-image:url('assets/img/hero-contact.jpg')">
+    <section class="hero hero--center" data-bg="hero.image">
       <div class="container hero__content">
-        <h1 class="hero__title"><span class="gold">Prenez contact</span><br>dès maintenant</h1>
-        <p class="hero__text">Une question, un projet, une estimation…<br>Laissez moi vos coordonnées et je vous rappelle.</p>
-        <div class="hero__actions"><a href="#formulaire" class="btn">Je me lance !</a></div>
+        <h1 class="hero__title"><span class="gold" data-t="hero.titre_or"></span><br><span data-t="hero.titre"></span></h1>
+        <p class="hero__text" data-t="hero.texte"></p>
+        <div class="hero__actions"><a href="#formulaire" class="btn" data-t="hero.bouton"></a></div>
       </div>
     </section>
 
     <section class="section" id="formulaire">
-      <h2 class="title">Comment ça marche ?</h2>
-      <p class="subtitle">Remplissez les champs ci-dessous afin d’avoir le maximum d’informations.</p>
+      <h2 class="title" data-t="formulaire.titre"></h2>
+      <p class="subtitle" data-t="formulaire.sous_titre"></p>
 
       <div class="contact-grid">
         <form class="contact-form" id="form-contact" novalidate>
@@ -48,20 +47,20 @@
             </select>
           </label>
           <label class="line-field"><span>Message</span><textarea name="message" rows="5"></textarea></label>
-          <button type="submit" class="btn">Envoyer mon message</button>
+          <button type="submit" class="btn" data-t="formulaire.bouton"></button>
           <p class="form-error" id="contact-erreur" hidden>L’envoi n’a pas abouti. Réessayez ou appelez-moi directement.</p>
         </form>
 
         <aside class="contact-side">
           <div class="side-card">
             <img src="assets/icons/chrono.png" alt="">
-            <h2>Réponse garantie sous 24h</h2>
+            <h2 data-t="encarts.delai"></h2>
           </div>
           <div class="side-card">
-            <h2>Mes coordoonées</h2>
+            <h2 data-t="encarts.coordonnees"></h2>
             <ul>
-              <li><img src="assets/icons/telephone.png" alt="Téléphone" style="width:34px"><a id="contact-tel"></a></li>
-              <li><img src="assets/icons/email.png" alt="Email"><a id="contact-mail"></a></li>
+              <li><img src="assets/icons/telephone.png" alt="Téléphone" style="width:34px"><a class="js-tel" data-t="site.telephone"></a></li>
+              <li><img src="assets/icons/email.png" alt="Email"><a class="js-mail" data-t="site.email"></a></li>
             </ul>
           </div>
         </aside>
@@ -70,12 +69,8 @@
   </main>
 
   <footer class="footer" id="site-footer"></footer>
-  <script>
-    document.getElementById("contact-tel").textContent = SITE.telephone;
-    document.getElementById("contact-tel").href = "tel:" + SITE.telephone.replace(/\s/g, "");
-    document.getElementById("contact-mail").textContent = SITE.email;
-    document.getElementById("contact-mail").href = "mailto:" + SITE.email;
-  </script>
+  <script src="js/cms.js" defer></script>
+  <script src="js/layout.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>

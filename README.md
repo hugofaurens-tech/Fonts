@@ -13,20 +13,42 @@ Site vitrine statique (HTML / CSS / JavaScript, sans dépendance), reproduit d'a
 | `contact.html` | Formulaire de contact |
 | `merci.html` | Confirmation après envoi d'un formulaire |
 
-## Modifier le contenu
+## Back-office (modifier le contenu)
 
-Presque tout se change dans **`js/data.js`** :
+Tout le contenu du site (textes, titres, images, biens, avis, coordonnées) est rangé dans le dossier
+**`content/`** et se modifie depuis le back-office **[Pages CMS](https://app.pagescms.org)**, sans toucher au code.
+Sa configuration est dans **`.pages.yml`**.
 
-- `SITE` : nom, téléphone, e-mail, adresse, WhatsApp, Instagram, LinkedIn
-- `BIENS` : les annonces (statut `vente` ou `vendu`, prix, surface, photo…). Chaque bien a un `id` unique qui sert d'adresse à sa page. Les champs détaillés (galerie `photos`, `description`, `pointsForts`, `equipements`, `quartierTexte`, charges…) sont facultatifs : une rubrique vide n'apparaît pas.
-- `AVIS` : les avis clients (3 par page, les points de navigation s'ajoutent automatiquement)
+| Rubrique du back-office | Fichier |
+|---|---|
+| Biens immobiliers | `content/biens.json` |
+| Avis clients | `content/avis.json` |
+| Coordonnées et pied de page | `content/site.json` |
+| Textes des pages (Accueil, Biens, Page d'un bien, Estimation, Contact, Confirmation) | `content/pages/*.json` |
 
-Les photos des biens se placent dans `assets/img/`.
+### Mise en route (une seule fois)
+
+1. Aller sur [app.pagescms.org](https://app.pagescms.org) et se connecter avec le compte GitHub propriétaire du dépôt.
+2. Installer l'application **Pages CMS** sur le dépôt `Fonts` quand c'est demandé.
+3. Ouvrir le dépôt et choisir **la même branche que celle publiée par GitHub Pages**.
+4. Dans **Settings → Collaborators**, inviter l'agent par son adresse e-mail : il recevra un lien de connexion,
+   sans avoir besoin de compte GitHub.
+
+### Au quotidien
+
+- Chaque **Save** enregistre la modification dans le dépôt ; le site en ligne est mis à jour en 1 à 2 minutes.
+- Images : les photos vont dans `assets/img/`, les icônes dans `assets/icons/`. Préférer des photos de moins de 1 Mo
+  (format JPG, environ 1600 px de large).
+- Dans les champs de texte, un retour à la ligne crée un retour à la ligne sur le site ; une ligne vide crée un
+  nouveau paragraphe (descriptions de biens et du quartier).
+- Chaque bien a un **identifiant** unique (ex. `duplex-terrasse`) qui forme l'adresse de sa page `bien.html?id=…`.
+
+Restent dans le code : le menu, les libellés des champs de formulaire et la mise en page.
 
 ## Recevoir les formulaires par e-mail
 
 1. Créez un formulaire gratuit sur [formspree.io](https://formspree.io).
-2. Copiez l'adresse fournie (ex. `https://formspree.io/f/abcdwxyz`) dans `formEndpoint` de `js/data.js`.
+2. Collez l'adresse fournie (ex. `https://formspree.io/f/abcdwxyz`) dans le back-office : **Coordonnées et pied de page → Adresse d'envoi des formulaires**.
 
 Tant que `formEndpoint` est vide, les formulaires affichent la page de confirmation **sans rien envoyer**.
 
@@ -36,6 +58,9 @@ Tant que `formEndpoint` est vide, les formulaires affichent la page de confirmat
 python3 -m http.server 8000
 # puis ouvrir http://localhost:8000
 ```
+
+Le contenu étant chargé depuis `content/`, le site doit être servi par un serveur (GitHub Pages ou la commande ci-dessus) :
+ouvrir directement `index.html` en double-cliquant n'affichera pas les textes.
 
 ## Polices
 

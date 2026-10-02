@@ -9,10 +9,9 @@
   <link rel="preload" href="assets/fonts/montserrat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body data-page="biens">
+<!-- Le contenu de chaque bien se modifie dans le back-office (content/biens.json), les textes communs dans content/pages/bien.json -->
+<body data-page="biens" data-content="bien" class="cms-loading">
   <header class="header" id="site-header"></header>
-  <script src="js/data.js"></script>
-  <script src="js/layout.js" defer></script>
 
   <main id="fiche">
     <nav class="breadcrumb" aria-label="Fil d’Ariane">
@@ -51,7 +50,7 @@
           <div class="product__main">
             <section id="bloc-description">
               <h2 class="product__h2">Description du bien</h2>
-              <p class="product__text" id="description"></p>
+              <div class="product__text" id="description"></div>
             </section>
             <section id="bloc-points">
               <h2 class="product__h2">Les points forts du bien</h2>
@@ -78,17 +77,17 @@
 
     <section class="section interest">
       <div class="container">
-        <h2 class="title">Ce bien vous intéresse ?</h2>
-        <p class="subtitle">Je vous accompagne personnellement pour organiser une visite, répondre à<br>vos questions et, si ce bien vous convient, vous guider jusqu'à la signature.</p>
-        <div class="actions"><a href="contact.html" class="btn btn--line" id="btn-visite-2">Demander une visite</a></div>
+        <h2 class="title" data-t="interet.titre"></h2>
+        <p class="subtitle" data-t="interet.texte"></p>
+        <div class="actions"><a href="contact.html" class="btn btn--line" id="btn-visite-2" data-t="interet.bouton"></a></div>
       </div>
     </section>
 
     <section class="section section--dark similar" id="similaires">
       <div class="container">
-        <h2 class="title title--left">Biens similaires à la vente</h2>
+        <h2 class="title title--left" data-t="similaires.titre"></h2>
         <div class="cards" id="liste-similaires"></div>
-        <div class="actions"><a href="biens.html" class="btn btn--big btn--dark">Voir d’autres biens</a></div>
+        <div class="actions"><a href="biens.html" class="btn btn--big btn--dark" data-t="similaires.bouton"></a></div>
       </div>
     </section>
   </main>
@@ -102,6 +101,8 @@
   </section>
 
   <footer class="footer" id="site-footer"></footer>
+  <script src="js/cms.js" defer></script>
+  <script src="js/layout.js" defer></script>
   <script src="js/main.js" defer></script>
   <script src="js/bien.js" defer></script>
 </body>
