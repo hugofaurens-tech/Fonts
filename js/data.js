@@ -13,8 +13,8 @@ const SITE = {
   telephone: "+33 6 65 62 10 91",
   email: "sebastien.faurens@century21.com",
   whatsapp: "33665621091", // numéro au format international, sans + ni espaces
-  instagram: "https://www.instagram.com/",
-  linkedin: "https://www.linkedin.com/",
+  instagram: "https://www.instagram.com/sebastien.batignolles.immo/",
+  linkedin: "https://www.linkedin.com/in/s%C3%A9bastien-faurens-927b2b109/",
   copyright: "Sébastien Faurens — Agent commercial indépendant mandataire Century 21 Les Batignolles",
 
   // Adresse d'envoi des formulaires (ex. "https://formspree.io/f/xxxxxxx").
