@@ -1,0 +1,18 @@
+{
+  "nom": "Sébastien Faurens",
+  "sousTitre": "Agent immobilier Century 21",
+  "slogan": "Votre projet,\nmon engagement.",
+  "description": "Sébastien Faurens, agent immobilier indépendant au sein de l’agence Century 21",
+  "agence": "Century 21 Patrimoine 17",
+  "adresse": [
+    "60 rue des Batignolles",
+    "75017 Paris"
+  ],
+  "telephone": "+33 6 65 62 10 91",
+  "email": "sebastien.faurens@century21.com",
+  "whatsapp": "33665621091",
+  "instagram": "https://www.instagram.com/sebastien.batignolles.immo/",
+  "linkedin": "https://www.linkedin.com/in/s%C3%A9bastien-faurens-927b2b109/",
+  "copyright": "Sébastien Faurens — Agent commercial indépendant mandataire Century 21 Les Batignolles",
+  "formEndpoint": ""
+}

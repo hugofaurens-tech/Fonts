@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demande envoyée — Sébastien Faurens</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/img/logo-sf-noir.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<!-- Les textes de cette page se modifient dans le back-office (content/pages/merci.json) -->
+<body data-page="contact" data-content="merci" class="cms-loading">
+  <script>
+    if (new URLSearchParams(location.search).get("demande") === "estimation") document.body.dataset.page = "estimation";
+  </script>
+  <header class="header" id="site-header"></header>
+
+  <main class="thanks">
+    <div class="container">
+      <img src="assets/icons/succes.png" alt="">
+      <h1 data-t="titre"></h1>
+      <p><span id="merci-texte" data-t="texte_contact"></span><br><span data-t="suite"></span></p>
+      <a href="index.html" data-t="lien"></a>
+    </div>
+  </main>
+
+  <footer class="footer" id="site-footer"></footer>
+  <script src="js/cms.js" defer></script>
+  <script src="js/layout.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
