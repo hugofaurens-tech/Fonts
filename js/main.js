@@ -141,7 +141,10 @@ CMS.pret.then(() => {
 
     function aller(i, defiler = true) {
       n = i;
-      etapes.forEach((e, j) => (e.hidden = j !== i));
+      etapes.forEach((e, j) => {
+        e.hidden = j !== i;
+        e.classList.toggle("fondu", j === i && defiler);
+      });
       puces.forEach((p, j) => p.classList.toggle("is-active", j === i));
       if (defiler) $("#estimer").scrollIntoView({ behavior: "smooth" });
     }

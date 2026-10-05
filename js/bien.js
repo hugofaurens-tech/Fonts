@@ -38,6 +38,9 @@ CMS.pret.then(function () {
   function montrer(i) {
     courante = (i + photos.length) % photos.length;
     principale.src = photos[courante];
+    principale.classList.remove("fondu");
+    void principale.offsetWidth; // relance l'animation de fondu
+    principale.classList.add("fondu");
     principale.alt = `${bien.titre} — photo ${courante + 1} sur ${photos.length}`;
     // Les 3 vignettes montrent les photos suivantes
     const suivantes = [1, 2, 3].map((k) => (courante + k) % photos.length).filter((j) => j !== courante);

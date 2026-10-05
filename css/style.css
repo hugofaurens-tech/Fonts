@@ -77,9 +77,16 @@ ul { list-style: none; margin: 0; padding: 0; }
 /* ============ HÉROS ============ */
 .hero {
   position: relative; min-height: 50.9375rem; display: flex; align-items: center;
-  color: var(--white); background: var(--ink) center / cover no-repeat;
-  isolation: isolate;
+  color: var(--white); background: var(--ink);
+  isolation: isolate; overflow: hidden;
 }
+/* Image de fond (posée par le back-office) avec un lent zoom arrière */
+.hero::after {
+  content: ""; position: absolute; inset: 0; z-index: -2;
+  background: var(--bg) center / cover no-repeat;
+  animation: hero-zoom 14s cubic-bezier(.25,.1,.25,1) both;
+}
+[data-bg]:not(.hero) { background-image: var(--bg); }
 .hero::before { content: ""; position: absolute; inset: 0; background: rgba(20, 20, 22, .45); z-index: -1; }
 .hero--grey::before { background: linear-gradient(90deg, rgba(95,102,110,.92) 0%, rgba(95,102,110,.85) 45%, rgba(95,102,110,.35) 100%); }
 .hero__content { width: min(83.75rem, 100% - 2rem); }
@@ -503,3 +510,39 @@ ul { list-style: none; margin: 0; padding: 0; }
 /* Chargement du contenu */
 .cms-loading main, .cms-loading .footer { visibility: hidden; }
 .cms-error { background: #c0392b; color: #fff; text-align: center; padding: 1rem; margin: 0; }
+
+/* ============ ANIMATIONS (sobres) ============ */
+@keyframes hero-zoom { from { transform: scale(1.08); } to { transform: scale(1); } }
+@keyframes fondu { from { opacity: 0; } to { opacity: 1; } }
+
+/* Apparition au défilement (classes posées par js/animations.js) */
+.reveal { opacity: 0; transform: translateY(1.6rem); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.65,.3,1); transition-delay: var(--delai, 0s); }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* En-tête : ombre légère dès qu'on fait défiler */
+.header { transition: box-shadow .3s; }
+.header.is-scrolled { box-shadow: 0 .4rem 1.4rem rgba(0,0,0,.08); }
+
+/* Survols */
+.btn { transition: background .25s, border-color .25s, color .25s, transform .25s, box-shadow .25s; }
+.btn:hover { transform: translateY(-2px); }
+.btn--contact:hover { box-shadow: 2px 6px 10px rgba(0,0,0,.2); }
+.card__photo { transition: box-shadow .4s; }
+.card:hover .card__photo { box-shadow: 0 1rem 2rem -1rem rgba(0,0,0,.35); }
+.card__photo > img { transition: transform .8s cubic-bezier(.2,.65,.3,1); }
+.feature__icon, .benefit__icon, .perk__icon, .step-card__icon { transition: transform .4s cubic-bezier(.2,.65,.3,1); }
+.feature:hover .feature__icon, .benefit:hover .benefit__icon, .perk:hover .perk__icon, .step-card:hover .step-card__icon { transform: translateY(-4px); }
+.socials a { transition: transform .25s, background .25s; }
+.socials a:hover { transform: translateY(-2px); background: var(--white); }
+.whatsapp { transition: transform .25s, box-shadow .25s; }
+.whatsapp:hover { box-shadow: 0 6px 18px rgba(0,0,0,.3); }
+
+/* Galerie et étapes de l'estimation : fondu au changement */
+.gallery__main > img.fondu { animation: fondu .5s ease; }
+.step.fondu { animation: fondu .45s ease; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::after, .gallery__main > img.fondu, .step.fondu { animation: none; }
+  .reveal { opacity: 1; transform: none; }
+  .btn:hover, .socials a:hover, .feature:hover .feature__icon, .benefit:hover .benefit__icon, .perk:hover .perk__icon, .step-card:hover .step-card__icon { transform: none; }
+}

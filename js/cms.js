@@ -5,7 +5,7 @@
    Dans le HTML :
      data-t="chemin"      → texte (les retours à la ligne deviennent <br>)
      data-img="chemin"    → image (attribut src)
-     data-bg="chemin"     → image de fond
+     data-bg="chemin"     → image de fond (variable CSS --bg)
      data-list="chemin"   → liste : le <template> enfant est répété pour chaque élément,
                             ses chemins sont alors relatifs à l'élément.
    Le chemin "site.xxx" désigne content/site.json, les autres le fichier
@@ -46,7 +46,8 @@ const CMS = (() => {
     });
     racine.querySelectorAll("[data-bg]").forEach((el) => {
       const v = lire(donnees, el.dataset.bg);
-      if (!vide(v)) el.style.backgroundImage = `url("${encodeURI(v)}")`;
+      // Adresse complète : sinon le navigateur la résoudrait depuis le dossier css/
+      if (!vide(v)) el.style.setProperty("--bg", `url("${new URL(v, document.baseURI).href}")`);
     });
     racine.querySelectorAll("[data-list]").forEach((liste) => {
       const modele = liste.querySelector(":scope > template");
