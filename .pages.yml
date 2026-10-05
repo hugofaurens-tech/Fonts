@@ -1,0 +1,484 @@
+# Configuration du back-office Pages CMS (https://pagescms.org)
+# Chaque entrée de "content" devient un formulaire dans l'interface d'administration.
+
+media:
+  - name: images
+    label: Photos
+    input: assets/img
+    output: assets/img
+    categories: [image]
+  - name: icones
+    label: Icônes
+    input: assets/icons
+    output: assets/icons
+    categories: [image]
+
+components:
+  carte:
+    type: object
+    fields:
+      - name: icone
+        label: Icône
+        type: image
+        options:
+          media: icones
+      - name: titre
+        label: Titre
+        type: text
+        description: Un retour à la ligne dans ce champ crée un retour à la ligne sur le site.
+      - name: texte
+        label: Texte
+        type: text
+
+content:
+  - name: biens
+    label: Biens immobiliers
+    description: Les annonces affichées sur le site (en vente et vendues).
+    type: file
+    path: content/biens.json
+    format: json
+    fields:
+      - name: biens
+        label: Biens
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{titre} — {ville} ({statut})"
+        fields:
+          - name: id
+            label: Identifiant
+            type: string
+            required: true
+            description: "Unique, en minuscules, sans espace ni accent (ex. duplex-terrasse). Il apparaît dans l'adresse de la page du bien : ne le changez plus une fois le bien publié."
+            pattern:
+              regex: "^[a-z0-9-]+$"
+              message: "Uniquement des lettres minuscules sans accent, des chiffres et des tirets."
+          - name: statut
+            label: Statut
+            type: select
+            required: true
+            options:
+              values:
+                - { value: vente, label: En vente }
+                - { value: vendu, label: Vendu }
+          - name: type
+            label: Type de bien
+            type: select
+            required: true
+            options:
+              values:
+                - { value: appartement, label: Appartement }
+                - { value: maison, label: Maison }
+                - { value: loft, label: Loft }
+                - { value: immeuble, label: Immeuble }
+                - { value: commerce, label: Commerce }
+                - { value: terrain, label: Terrain }
+          - name: titre
+            label: Titre
+            type: string
+            required: true
+          - name: ville
+            label: Ville
+            type: string
+            required: true
+            description: "Ex. Paris 17ème, Levallois-Perret… Sert aussi au filtre « Localisation »."
+          - name: quartier
+            label: Quartier
+            type: string
+          - name: prix
+            label: Prix (€)
+            type: number
+            required: true
+          - name: surface
+            label: Surface (m²)
+            type: number
+            required: true
+          - name: pieces
+            label: Nombre de pièces
+            type: number
+            required: true
+          - name: dpe
+            label: DPE
+            type: select
+            options:
+              values: [A, B, C, D, E, F, G]
+          - name: photo
+            label: Photo de la carte
+            type: image
+            required: true
+            description: Photo affichée dans les listes de biens.
+            options:
+              media: images
+          - name: photos
+            label: Galerie photos (page du bien)
+            type: image
+            description: "La première photo est la grande photo. Si vide, la photo de la carte est utilisée."
+            options:
+              media: images
+              multiple: true
+          - name: adresse
+            label: Adresse affichée
+            type: string
+            description: "Ex. Avenue Georges Mandel, 75016 Paris. Si vide : « Ville - Quartier »."
+          - name: chambres
+            label: Chambres
+            type: number
+          - name: sallesDeBain
+            label: Salles de bain
+            type: number
+          - name: etage
+            label: Étage
+            type: number
+          - name: annee
+            label: Année de construction
+            type: number
+          - name: chauffage
+            label: Chauffage
+            type: string
+          - name: charges
+            label: Charges mensuelles (€)
+            type: number
+          - name: taxeFonciere
+            label: Taxe foncière annuelle (€)
+            type: number
+          - name: description
+            label: Description du bien
+            type: text
+            description: Laissez une ligne vide pour commencer un nouveau paragraphe.
+          - name: pointsForts
+            label: Points forts
+            type: string
+            list: true
+          - name: equipements
+            label: Équipements et services
+            type: string
+            list: true
+            description: Ex. Ascenseur, Parking, Cave…
+          - name: quartierTexte
+            label: Quelques mots sur le quartier
+            type: text
+            description: Laissez une ligne vide pour commencer un nouveau paragraphe.
+
+  - name: avis
+    label: Avis clients
+    type: file
+    path: content/avis.json
+    format: json
+    fields:
+      - name: avis
+        label: Avis
+        type: object
+        description: Les avis s'affichent par groupes de 3 ; les points de navigation s'ajoutent automatiquement.
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{nom} — {lieu}"
+        fields:
+          - { name: nom, label: Nom, type: string, required: true }
+          - { name: lieu, label: Lieu, type: string }
+          - { name: texte, label: Avis, type: text, required: true }
+
+  - name: site
+    label: Coordonnées et pied de page
+    type: file
+    path: content/site.json
+    format: json
+    fields:
+      - { name: nom, label: Nom, type: string, required: true }
+      - { name: sousTitre, label: Sous-titre du logo, type: string }
+      - { name: slogan, label: Slogan du pied de page, type: text }
+      - { name: description, label: Présentation (pied de page), type: text }
+      - { name: agence, label: Agence, type: string }
+      - name: adresse
+        label: Adresse (une ligne par élément)
+        type: string
+        list: true
+      - { name: telephone, label: Téléphone, type: string, required: true }
+      - { name: email, label: E-mail, type: string, required: true }
+      - name: whatsapp
+        label: Numéro WhatsApp
+        type: string
+        description: "Format international sans + ni espaces (ex. 33665621091)."
+      - { name: instagram, label: Lien Instagram, type: string }
+      - { name: linkedin, label: Lien LinkedIn, type: string }
+      - { name: copyright, label: Mention en bas de page, type: string }
+      - name: formEndpoint
+        label: Adresse d'envoi des formulaires (technique)
+        type: string
+        description: "Adresse Formspree (ex. https://formspree.io/f/xxxxxxx). Vide : les formulaires n'envoient rien."
+      - name: cookies
+        label: Bandeau cookies
+        type: object
+        fields:
+          - { name: titre, label: Titre du bandeau, type: string }
+          - { name: texte, label: Texte du bandeau, type: text }
+          - name: googleAnalytics
+            label: Identifiant Google Analytics (technique)
+            type: string
+            description: "Ex. G-XXXXXXXXXX. Chargé uniquement si le visiteur accepte la mesure d'audience. Vide : aucune mesure."
+
+  - name: pages
+    label: Textes des pages
+    type: group
+    items:
+      - name: page-accueil
+        label: Accueil
+        type: file
+        path: content/pages/accueil.json
+        format: json
+        fields:
+          - name: hero
+            label: Haut de page
+            type: object
+            fields:
+              - { name: image, label: Image de fond, type: image, options: { media: images } }
+              - { name: titre, label: Titre (blanc), type: text }
+              - { name: titre_or, label: Titre (doré), type: string }
+              - { name: sous_titre, label: Sous-titre, type: text }
+              - { name: bouton_biens, label: Bouton « biens », type: string }
+              - { name: bouton_estimation, label: Bouton « estimation », type: string }
+          - name: chiffres
+            label: Chiffres clés
+            type: object
+            list: true
+            fields:
+              - { name: nombre, label: Nombre, type: string }
+              - { name: libelle, label: Libellé, type: string }
+          - name: pourquoi
+            label: Pourquoi me choisir
+            type: object
+            fields:
+              - { name: titre, label: Titre, type: string }
+              - { name: atouts, label: Atouts, component: carte, list: true }
+              - { name: bouton, label: Bouton, type: string }
+          - name: selection
+            label: Biens d'exception
+            type: object
+            fields:
+              - { name: titre, label: Titre, type: string }
+              - { name: sous_titre, label: Sous-titre, type: text }
+              - { name: bouton, label: Bouton, type: string }
+          - name: gestion
+            label: Confiez la gestion de votre bien
+            type: object
+            fields:
+              - { name: titre, label: Titre, type: string }
+              - { name: sous_titre, label: Sous-titre, type: text }
+              - { name: avantages, label: Avantages, component: carte, list: true }
+              - { name: phrase, label: Phrase de conclusion, type: string }
+              - { name: phrase_or, label: Phrase de conclusion (dorée), type: string }
+              - { name: bouton, label: Bouton, type: string }
+          - name: avis
+            label: Avis clients
+            type: object
+            fields:
+              - { name: titre, label: Titre, type: string }
+              - { name: sous_titre, label: Sous-titre, type: text }
+              - { name: phrase, label: Phrase finale, type: string }
+              - { name: phrase_or, label: Phrase finale (dorée), type: string }
+              - { name: bouton, label: Bouton, type: string }
+
+      - name: page-biens
+        label: Biens (en vente / vendus)
+        type: file
+        path: content/pages/biens.json
+        format: json
+        fields:
+          - name: hero
+            label: Haut de page
+            type: object
+            fields:
+              - { name: image, label: Image de fond, type: image, options: { media: images } }
+              - { name: titre_or, label: Titre (doré), type: string }
+              - { name: titre_vente, label: Sous-titre (page « en vente »), type: text }
+              - { name: titre_vendus, label: Sous-titre (page « vendus »), type: text }
+              - { name: texte, label: Texte, type: text }
+          - name: liste
+            label: Liste
+            type: object
+            fields:
+              - { name: titre_vente, label: Titre (page « en vente »), type: string }
+              - { name: titre_vendus, label: Titre (page « vendus »), type: string }
+          - name: projet
+            label: Vous n'avez pas trouvé votre bonheur
+            type: object
+            fields:
+              - { name: titre, label: Titre, type: string }
+              - { name: sous_titre, label: Sous-titre, type: text }
+              - { name: etapes, label: Étapes, component: carte, list: true }
+              - { name: bouton, label: Bouton, type: string }
+
+      - name: page-bien
+        label: Page d'un bien (textes communs)
+        type: file
+        path: content/pages/bien.json
+        format: json
+        fields:
+          - name: interet
+            label: Ce bien vous intéresse
+            type: object
+            fields:
+              - { name: titre, label: Titre, type: string }
+              - { name: texte, label: Texte, type: text }
+              - { name: bouton, label: Bouton, type: string }
+          - name: similaires
+            label: Biens similaires
+            type: object
+            fields:
+              - { name: titre, label: Titre, type: string }
+              - { name: bouton, label: Bouton, type: string }
+
+      - name: page-estimation
+        label: Estimation
+        type: file
+        path: content/pages/estimation.json
+        format: json
+        fields:
+          - name: hero
+            label: Haut de page
+            type: object
+            fields:
+              - { name: image, label: Image de fond, type: image, options: { media: images } }
+              - { name: titre_or, label: Titre (doré), type: string }
+              - { name: titre, label: Titre (blanc), type: string }
+              - { name: texte, label: Texte, type: text }
+              - { name: bouton, label: Bouton, type: string }
+          - name: etapes
+            label: Estimez votre bien en 3 étapes
+            type: object
+            fields:
+              - { name: titre, label: Titre, type: string }
+              - { name: sous_titre, label: Sous-titre, type: text }
+              - { name: items, label: Étapes, component: carte, list: true }
+          - name: formulaire
+            label: Formulaire d'estimation
+            type: object
+            fields:
+              - { name: etape1_titre, label: Étape 1 — titre, type: string }
+              - { name: etape1_texte, label: Étape 1 — texte, type: text }
+              - { name: etape2_titre, label: Étape 2 — titre, type: string }
+              - { name: etape2_texte, label: Étape 2 — texte, type: text }
+              - { name: etape3_titre, label: Étape 3 — titre, type: string }
+              - { name: etape3_texte, label: Étape 3 — texte, type: text }
+              - { name: etape4_titre, label: Étape 4 — titre, type: string }
+              - { name: etape4_texte, label: Étape 4 — texte, type: text }
+          - name: pourquoi
+            label: Pourquoi faire estimer votre bien avec moi
+            type: object
+            fields:
+              - { name: titre, label: Titre, type: string }
+              - { name: sous_titre, label: Sous-titre, type: text }
+              - { name: items, label: Arguments, component: carte, list: true }
+          - name: avis
+            label: Avis clients
+            type: object
+            fields:
+              - { name: titre, label: Titre, type: string }
+              - { name: sous_titre, label: Sous-titre, type: text }
+
+      - name: page-contact
+        label: Contact
+        type: file
+        path: content/pages/contact.json
+        format: json
+        fields:
+          - name: hero
+            label: Haut de page
+            type: object
+            fields:
+              - { name: image, label: Image de fond, type: image, options: { media: images } }
+              - { name: titre_or, label: Titre (doré), type: string }
+              - { name: titre, label: Titre (blanc), type: string }
+              - { name: texte, label: Texte, type: text }
+              - { name: bouton, label: Bouton, type: string }
+          - name: formulaire
+            label: Formulaire
+            type: object
+            fields:
+              - { name: titre, label: Titre, type: string }
+              - { name: sous_titre, label: Sous-titre, type: text }
+              - { name: bouton, label: Bouton d'envoi, type: string }
+          - name: encarts
+            label: Encarts dorés
+            type: object
+            fields:
+              - { name: delai, label: Titre de l'encart « délai », type: string }
+              - { name: coordonnees, label: Titre de l'encart « coordonnées », type: string }
+
+      - name: page-merci
+        label: Confirmation d'envoi
+        type: file
+        path: content/pages/merci.json
+        format: json
+        fields:
+          - { name: titre, label: Titre, type: string }
+          - { name: texte_contact, label: Texte après un message de contact, type: text }
+          - { name: texte_estimation, label: Texte après une demande d'estimation, type: text }
+          - { name: suite, label: Phrase suivante, type: string }
+          - { name: lien, label: Lien de retour, type: string }
+
+  - name: legal
+    label: Pages légales
+    type: group
+    items:
+      - name: page-mentions-legales
+        label: Mentions légales
+        type: file
+        path: content/pages/mentions-legales.json
+        format: json
+        fields:
+          - { name: titre, label: Titre, type: string }
+          - { name: mise_a_jour, label: Date de dernière mise à jour, type: string }
+          - { name: introduction, label: Introduction, type: text }
+          - name: sections
+            label: Sections
+            type: object
+            description: "Dans le texte : une ligne vide crée un nouveau paragraphe ; des lignes commençant par « - » forment une liste à puces."
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{titre}"
+            fields:
+              - { name: titre, label: Titre de la section, type: string }
+              - { name: texte, label: Texte, type: text }
+      - name: page-cgu
+        label: Conditions générales d’utilisation
+        type: file
+        path: content/pages/cgu.json
+        format: json
+        fields:
+          - { name: titre, label: Titre, type: string }
+          - { name: mise_a_jour, label: Date de dernière mise à jour, type: string }
+          - { name: introduction, label: Introduction, type: text }
+          - name: sections
+            label: Sections
+            type: object
+            description: "Dans le texte : une ligne vide crée un nouveau paragraphe ; des lignes commençant par « - » forment une liste à puces."
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{titre}"
+            fields:
+              - { name: titre, label: Titre de la section, type: string }
+              - { name: texte, label: Texte, type: text }
+      - name: page-confidentialite
+        label: Politique de confidentialité
+        type: file
+        path: content/pages/confidentialite.json
+        format: json
+        fields:
+          - { name: titre, label: Titre, type: string }
+          - { name: mise_a_jour, label: Date de dernière mise à jour, type: string }
+          - { name: introduction, label: Introduction, type: text }
+          - name: sections
+            label: Sections
+            type: object
+            description: "Dans le texte : une ligne vide crée un nouveau paragraphe ; des lignes commençant par « - » forment une liste à puces."
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{titre}"
+            fields:
+              - { name: titre, label: Titre de la section, type: string }
+              - { name: texte, label: Texte, type: text }

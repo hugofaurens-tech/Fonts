@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Estimation immobilière gratuite à Paris 17ème et en Île-de-France — Sébastien Faurens</title>
+  <meta name="description" content="Estimation immobilière gratuite à Paris 17ème et en Île-de-France. Obtenez en 24 heures une évaluation précise du prix de vente de votre appartement, maison ou immeuble.">
+  <link rel="icon" href="assets/img/logo-sf-noir.png">
+  <link rel="preload" href="assets/fonts/montserrat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<!-- Les textes et images de cette page se modifient dans le back-office (content/pages/estimation.json) -->
+<body data-page="estimation" data-content="estimation" class="cms-loading">
+  <header class="header" id="site-header"></header>
+
+  <main>
+    <section class="hero hero--center" data-bg="hero.image">
+      <div class="container hero__content">
+        <h1 class="hero__title"><span class="gold" data-t="hero.titre_or"></span><span class="light" data-t="hero.titre"></span></h1>
+        <p class="hero__text" data-t="hero.texte"></p>
+        <div class="hero__actions"><a href="#estimer" class="btn" data-t="hero.bouton"></a></div>
+      </div>
+    </section>
+
+    <section class="section section--grey">
+      <div class="container">
+        <h2 class="title" data-t="etapes.titre"></h2>
+        <p class="subtitle" data-t="etapes.sous_titre"></p>
+        <div class="steps" data-list="etapes.items">
+          <template>
+            <div class="step-card">
+              <div class="step-card__icon"><span class="step-card__num"></span><img data-img="icone" alt=""></div>
+              <h3 data-t="titre"></h3>
+              <p data-t="texte"></p>
+            </div>
+          </template>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="estimer">
+      <ol class="stepper" aria-label="Progression">
+        <li>1</li><li>2</li><li>3</li><li>4</li>
+      </ol>
+
+      <form id="form-estimation" novalidate>
+        <!-- Étape 1 -->
+        <div class="step">
+          <h2 class="step__title container" data-t="formulaire.etape1_titre"></h2>
+          <p class="step__intro" data-t="formulaire.etape1_texte"></p>
+          <div class="form-zone">
+            <fieldset class="choices" data-auto>
+              <legend class="sr-only">Type de bien</legend>
+              <label><input type="radio" name="type_de_bien" value="Appartement" required><span>Appartement</span></label>
+              <label><input type="radio" name="type_de_bien" value="Maison"><span>Maison</span></label>
+              <label><input type="radio" name="type_de_bien" value="Immeuble"><span>Immeuble</span></label>
+              <label><input type="radio" name="type_de_bien" value="Commerce"><span>Commerce</span></label>
+            </fieldset>
+          </div>
+        </div>
+
+        <!-- Étape 2 -->
+        <div class="step" hidden>
+          <h2 class="step__title container" data-t="formulaire.etape2_titre"></h2>
+          <p class="step__intro" data-t="formulaire.etape2_texte"></p>
+          <div class="form-zone fields">
+            <label>Adresse du bien<input name="adresse" placeholder="Ex. 12 rue des Batignolles" autocomplete="street-address" required></label>
+            <label class="w2">Code postal<input name="code_postal" placeholder="Ex. 75017" inputmode="numeric" pattern="[0-9]{5}" autocomplete="postal-code" required></label>
+            <label class="w4">Ville<input name="ville" placeholder="Paris" autocomplete="address-level2" required></label>
+            <label class="w2">Surface du bien<input name="surface" placeholder="Ex. 65m2" required></label>
+            <label class="w2">Nombre de pièces<input name="pieces" placeholder="Ex. 4" inputmode="numeric"></label>
+            <label class="w2">Étage<input name="etage" placeholder="Ex. 2ème"></label>
+          </div>
+          <div class="form-zone step__nav">
+            <button type="button" class="btn btn--ghost" data-prev>Retour</button>
+            <button type="button" class="btn" data-next>Suivant</button>
+          </div>
+        </div>
+
+        <!-- Étape 3 -->
+        <div class="step" hidden>
+          <h2 class="step__title container" data-t="formulaire.etape3_titre"></h2>
+          <p class="step__intro" data-t="formulaire.etape3_texte"></p>
+          <div class="form-zone">
+            <fieldset class="choices choices--3">
+              <legend class="sr-only">État général</legend>
+              <label><input type="radio" name="etat" value="À rénover" required><span>À rénover</span></label>
+              <label><input type="radio" name="etat" value="Bon"><span>Bon</span></label>
+              <label><input type="radio" name="etat" value="Excellent"><span>Excellent</span></label>
+            </fieldset>
+          </div>
+          <div class="form-zone step__nav" style="margin-top:4.8rem">
+            <button type="button" class="btn btn--ghost" data-prev>Retour</button>
+            <button type="button" class="btn" data-next>Suivant</button>
+          </div>
+        </div>
+
+        <!-- Étape 4 -->
+        <div class="step" hidden>
+          <h2 class="step__title container" data-t="formulaire.etape4_titre"></h2>
+          <p class="step__intro" data-t="formulaire.etape4_texte"></p>
+          <div class="form-zone fields">
+            <label>Prénom<input name="prenom" autocomplete="given-name" required></label>
+            <label>Nom<input name="nom" autocomplete="family-name" required></label>
+            <label>Téléphone<input type="tel" name="telephone" autocomplete="tel" required></label>
+            <label>Email<input type="email" name="email" autocomplete="email" required></label>
+          </div>
+          <div class="form-zone step__nav" style="margin-top:3.5rem">
+            <button type="button" class="btn btn--ghost" data-prev>Retour</button>
+            <button type="submit" class="btn">Envoyer</button>
+          </div>
+          <p class="form-error" id="estimation-erreur" hidden>L’envoi n’a pas abouti. Réessayez ou appelez-moi directement.</p>
+        </div>
+      </form>
+    </section>
+
+    <section class="section section--dark">
+      <div class="container">
+        <h2 class="title" data-t="pourquoi.titre"></h2>
+        <p class="subtitle" data-t="pourquoi.sous_titre"></p>
+        <div class="perks" data-list="pourquoi.items">
+          <template>
+            <div class="perk">
+              <div class="perk__icon"><img data-img="icone" alt=""></div>
+              <h3 data-t="titre"></h3>
+              <p data-t="texte"></p>
+            </div>
+          </template>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--light">
+      <div class="container">
+        <h2 class="title" data-t="avis.titre"></h2>
+        <p class="subtitle" data-t="avis.sous_titre"></p>
+        <div class="stars" aria-label="5 étoiles sur 5">
+          <img src="assets/icons/etoile.png" alt=""><img src="assets/icons/etoile.png" alt=""><img src="assets/icons/etoile.png" alt=""><img src="assets/icons/etoile.png" alt=""><img src="assets/icons/etoile.png" alt="">
+        </div>
+        <div class="reviews">
+          <div class="reviews__list"></div>
+          <div class="dots"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="site-footer"></footer>
+  <script src="js/cms.js" defer></script>
+  <script src="js/layout.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/animations.js" defer></script>
+  <script src="js/cookies.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+{
+  "titre": "Politique de confidentialité",
+  "mise_a_jour": "5 octobre 2026",
+  "introduction": "Cette politique explique quelles données personnelles sont collectées sur ce site, pourquoi, combien de temps elles sont conservées et comment exercer vos droits, conformément au Règlement général sur la protection des données (RGPD) et à la loi « Informatique et Libertés ».",
+  "sections": [
+    {
+      "titre": "Responsable du traitement",
+      "texte": "Sébastien Faurens, agent commercial indépendant en immobilier, 60 rue des Batignolles, 75017 Paris — sebastien.faurens@century21.com."
+    },
+    {
+      "titre": "Données collectées",
+      "texte": "Nous collectons uniquement les données que vous nous transmettez via les formulaires du site :\n\n- Formulaire de contact : prénom, nom, téléphone, e-mail, type de projet et message.\n- Formulaire d’estimation : type de bien, adresse, code postal, ville, surface, nombre de pièces, étage, état général, ainsi que vos prénom, nom, téléphone et e-mail.\n\nAucune donnée n’est collectée à votre insu. Les champs obligatoires sont signalés lors de la saisie."
+    },
+    {
+      "titre": "Finalités et bases légales",
+      "texte": "- Répondre à vos demandes de contact et de rendez-vous : mesures précontractuelles prises à votre demande.\n- Réaliser l’estimation de votre bien : mesures précontractuelles prises à votre demande.\n- Mesurer l’audience du site (uniquement si vous l’acceptez) : consentement.\n\nVos données ne sont jamais vendues ni utilisées à des fins de prospection commerciale sans votre accord."
+    },
+    {
+      "titre": "Destinataires",
+      "texte": "Vos données sont destinées à Sébastien Faurens et, si nécessaire au traitement de votre demande, à l’agence Century 21 Patrimoine 17.\n\nElles transitent par des prestataires techniques agissant pour notre compte :\n\n- Formspree (envoi des formulaires) : [À compléter si ce service est utilisé]\n- GitHub, Inc. (hébergement du site)\n- Google (mesure d’audience, uniquement avec votre accord)\n\nCertains de ces prestataires sont situés aux États-Unis ; les transferts sont encadrés par les garanties prévues par le RGPD (clauses contractuelles types ou cadre de protection des données UE–États-Unis)."
+    },
+    {
+      "titre": "Durée de conservation",
+      "texte": "- Demandes de contact et d’estimation non suivies d’un mandat : 3 ans à compter du dernier contact.\n- Données liées à un mandat ou à une transaction : durée de la relation contractuelle, puis durées légales de prescription.\n- Choix relatif aux cookies : 6 mois."
+    },
+    {
+      "titre": "Cookies",
+      "texte": "Lors de votre première visite, un bandeau vous permet d’accepter, de refuser ou de personnaliser les cookies. Vous pouvez modifier votre choix à tout moment via le lien « Gestion des cookies » en bas de chaque page.\n\n- Cookie nécessaire « sf_consentement » : mémorise votre choix pendant 6 mois.\n- Cookies de mesure d’audience (Google Analytics) : déposés uniquement si vous les acceptez, conservés 13 mois au maximum.\n\nLes liens vers WhatsApp, Instagram et LinkedIn ne déposent aucun cookie tant que vous ne cliquez pas dessus."
+    },
+    {
+      "titre": "Vos droits",
+      "texte": "Vous disposez d’un droit d’accès, de rectification, d’effacement, de limitation, d’opposition et de portabilité de vos données, ainsi que du droit de retirer votre consentement à tout moment et de définir des directives relatives au sort de vos données après votre décès.\n\nPour les exercer, écrivez à sebastien.faurens@century21.com ou à l’adresse postale ci-dessus. Une réponse vous sera apportée dans un délai d’un mois.\n\nSi vous estimez que vos droits ne sont pas respectés, vous pouvez introduire une réclamation auprès de la CNIL (www.cnil.fr)."
+    },
+    {
+      "titre": "Sécurité",
+      "texte": "Le site est servi en connexion sécurisée (HTTPS). Nous mettons en œuvre des mesures raisonnables pour protéger vos données contre la perte, l’accès non autorisé ou la divulgation."
+    }
+  ]
+}

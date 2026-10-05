@@ -1,0 +1,11 @@
+{
+  "interet": {
+    "titre": "Ce bien vous intéresse ?",
+    "texte": "Je vous accompagne personnellement pour organiser une visite, répondre à\nvos questions et, si ce bien vous convient, vous guider jusqu'à la signature.",
+    "bouton": "Demander une visite"
+  },
+  "similaires": {
+    "titre": "Biens similaires à la vente",
+    "bouton": "Voir d’autres biens"
+  }
+}

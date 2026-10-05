@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Biens immobiliers à vendre à Paris et en Île-de-France — Sébastien Faurens</title>
+  <meta name="description" content="Appartements haussmanniens, maisons de ville et biens d'exception à vendre à Paris, Levallois-Perret, Neuilly-sur-Seine et dans l'ouest parisien.">
+  <link rel="icon" href="assets/img/logo-sf-noir.png">
+  <link rel="preload" href="assets/fonts/montserrat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<!-- Les textes et images de cette page se modifient dans le back-office (content/pages/biens.json) -->
+<body data-page="biens" data-content="biens" class="cms-loading">
+  <header class="header" id="site-header"></header>
+
+  <main>
+    <section class="hero hero--grey" data-bg="hero.image">
+      <div class="container hero__content">
+        <h1 class="hero__title hero__title--left"><span class="gold" data-t="hero.titre_or"></span><span class="light" data-t="hero.titre_vente"></span></h1>
+        <p class="hero__text" data-t="hero.texte"></p>
+      </div>
+    </section>
+
+    <div class="tabs-band">
+      <nav class="tabs" aria-label="Statut des biens">
+        <a href="biens.html" data-statut="vente" aria-current="page">En vente</a>
+        <a href="biens-vendus.html" data-statut="vendu">Vendus</a>
+      </nav>
+      <div class="filters-band">
+        <form class="filters" id="filtres" role="search">
+          <label class="field-box"><span class="sr-only">Type de bien</span>
+            <select name="type"><option value="">Type de bien</option></select>
+          </label>
+          <label class="field-box"><span class="sr-only">Localisation</span>
+            <select name="ville"><option value="">Localisation</option></select>
+          </label>
+          <label class="field-box"><span class="sr-only">Prix minimum</span>
+            <input type="number" name="min" min="0" step="10000" placeholder="Prix minimum">
+          </label>
+          <label class="field-box"><span class="sr-only">Prix maximum</span>
+            <input type="number" name="max" min="0" step="10000" placeholder="Prix maximum">
+          </label>
+          <button class="btn" type="submit"><img src="assets/icons/loupe.png" alt="">Rechercher</button>
+        </form>
+      </div>
+    </div>
+
+    <section class="section" id="liste">
+      <div class="container">
+        <h2 class="title" data-t="liste.titre_vente"></h2>
+        <div class="cards cards--list" id="liste-biens" data-statut="vente" aria-live="polite"></div>
+        <nav class="pagination" id="pagination" aria-label="Pages" hidden></nav>
+      </div>
+    </section>
+
+    <section class="section section--dark" id="projet">
+      <div class="container">
+        <h2 class="title" data-t="projet.titre"></h2>
+        <p class="subtitle" data-t="projet.sous_titre"></p>
+        <div class="steps" data-list="projet.etapes">
+          <template>
+            <div class="step-card">
+              <div class="step-card__icon"><span class="step-card__num"></span><img data-img="icone" alt=""></div>
+              <h3 data-t="titre"></h3>
+              <p data-t="texte"></p>
+            </div>
+          </template>
+        </div>
+        <div class="actions"><a href="contact.html?projet=achat" class="btn" data-t="projet.bouton"></a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="site-footer"></footer>
+  <script src="js/cms.js" defer></script>
+  <script src="js/layout.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/animations.js" defer></script>
+  <script src="js/cookies.js" defer></script>
+</body>
+</html>

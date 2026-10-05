@@ -1,0 +1,86 @@
+{
+  "hero": {
+    "image": "assets/img/hero-accueil.jpg",
+    "titre": "Votre bien\nvotre projet",
+    "titre_or": "mon engagement",
+    "sous_titre": "Sébastien Faurens\nAgent immobilier en Île-de-France",
+    "bouton_biens": "Voir les biens",
+    "bouton_estimation": "Estimer mon bien"
+  },
+  "chiffres": [
+    {
+      "nombre": "+10",
+      "libelle": "Années d'expériences"
+    },
+    {
+      "nombre": "+100",
+      "libelle": "Biens vendus"
+    },
+    {
+      "nombre": "+50",
+      "libelle": "Clients satisfaits"
+    }
+  ],
+  "pourquoi": {
+    "titre": "Pourquoi me choisir ?",
+    "atouts": [
+      {
+        "icone": "assets/icons/maison-or.png",
+        "titre": "Expertise locale",
+        "texte": "Une connaissance approfondie du marché parisien et de l'Île-de-France pour valoriser au mieux votre bien."
+      },
+      {
+        "icone": "assets/icons/conseiller.png",
+        "titre": "Accompagnement personnalisé",
+        "texte": "Un suivi sur-mesure à chaque étape de votre projet, de l'estimation à la signature."
+      },
+      {
+        "icone": "assets/icons/century21.png",
+        "titre": "Réseau Century 21",
+        "texte": "La force d'un réseau national au service de votre projet immobilier local."
+      }
+    ],
+    "bouton": "Prendre RDV"
+  },
+  "selection": {
+    "titre": "Biens d’exception",
+    "sous_titre": "Découvrez une sélection de biens en Île-de-France",
+    "bouton": "Voir les biens"
+  },
+  "gestion": {
+    "titre": "Confiez la gestion de votre bien",
+    "sous_titre": "Bénéficiez d'une estimation précise, d'une stratégie de vente personnalisée et d'un accompagnement complet pour vendre votre bien dans les meilleures conditions.",
+    "avantages": [
+      {
+        "icone": "assets/icons/cible.png",
+        "titre": "Un prix juste dès le premier jour",
+        "texte": "Un bien mal estimé reste sur le marché. Un bien surestimé fait fuir les acheteurs sérieux, un bien sous-estimé vous fait perdre de l'argent. Grâce à ma connaissance fine du marché en Île-de-France et à mon accès aux données de transactions réelles, je fixe le bon prix dès la mise en vente — celui qui attire les offres sans sacrifier votre patrimoine."
+      },
+      {
+        "icone": "assets/icons/megaphone.png",
+        "titre": "Une visibilité que vous ne pouvez pas avoir seul",
+        "texte": "Vendre entre particuliers, c'est publier une annonce. Vendre avec moi, c'est activer un réseau. Votre bien est diffusé sur les plus grandes plateformes immobilières, promu auprès de mon portefeuille d'acquéreurs actifs, et relayé via le réseau national Century 21.\nVotre bien est vu par les bons acheteurs, au bon moment."
+      },
+      {
+        "icone": "assets/icons/bouclier.png",
+        "titre": "Zéro stress, zéro perte de temps",
+        "texte": "Gérer une vente seul, c'est des dizaines d'appels à filtrer, des visites à organiser, des négociations à mener et des documents juridiques à maîtriser. Je prends en charge l'intégralité du processus, de la première visite jusqu'à la signature chez le notaire, pour que vous n'ayez qu'une chose à faire : préparer votre prochain projet."
+      },
+      {
+        "icone": "assets/icons/poignee-de-main.png",
+        "titre": "Un engagement de résultat, pas de moyens",
+        "texte": "Je ne suis rémunéré qu'à la vente conclue. Mon intérêt est donc exactement aligné avec le vôtre : vendre vite, au meilleur prix, dans les meilleures conditions. Pas de frais cachés, pas de promesses vagues — un accompagnement transparent de A à Z, avec un interlocuteur unique joignable 7j/7."
+      }
+    ],
+    "phrase": "Votre bien mérite mieux qu'une annonce,",
+    "phrase_or": "il mérite une stratégie.",
+    "bouton": "Faire une estimation gratuite"
+  },
+  "avis": {
+    "titre": "Ce que mes clients disent de moi",
+    "sous_titre": "Parce que parfois, c'est la voix des autres qui nous aide à oser.",
+    "phrase": "Vous aussi, faites de votre projet",
+    "phrase_or": "une réussite.",
+    "bouton": "C’est parti !"
+  }
+}

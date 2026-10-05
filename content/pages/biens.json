@@ -1,0 +1,35 @@
+{
+  "hero": {
+    "image": "assets/img/hero-biens.jpg",
+    "titre_or": "Biens immobiliers",
+    "titre_vente": "à vendre à Paris\net en Île-de-France",
+    "titre_vendus": "vendus à Paris\net en Île-de-France",
+    "texte": "Découvrez une sélection exclusive d'appartements haussmanniens, maisons de ville et biens d'exception à Paris, Levallois-Perret, Neuilly-sur-Seine et dans tout l'ouest parisien."
+  },
+  "liste": {
+    "titre_vente": "Liste des biens en vente",
+    "titre_vendus": "Liste des biens vendus"
+  },
+  "projet": {
+    "titre": "Vous n’avez pas trouvé votre bonheur ?",
+    "sous_titre": "Décrivez-moi votre projet d’achat et je m’occupe de trouver votre bien idéal !",
+    "etapes": [
+      {
+        "icone": "assets/icons/panneau.png",
+        "titre": "Vous décrivez votre\nprojet immobilier",
+        "texte": "Définissez vos critères de recherche : type de bien (appartement, maison, loft), localisation à Paris 17ème, Levallois-Perret ou Neuilly-sur-Seine, budget d'achat, surface et prestations attendues."
+      },
+      {
+        "icone": "assets/icons/loupe.png",
+        "titre": "Je recherche votre\nbien idéal",
+        "texte": "Chasseur immobilier indépendant, j'identifie les biens correspondant à vos critères grâce à mon réseau local : annonces publiques, ventes off-market et opportunités exclusives avant leur mise sur le marché."
+      },
+      {
+        "icone": "assets/icons/maison.png",
+        "titre": "Vous achetez en\ntoute sérénité",
+        "texte": "Recevez des propositions personnalisées et un accompagnement complet : visites ciblées, négociation du prix, conseil juridique et suivi jusqu'à la signature chez le notaire."
+      }
+    ],
+    "bouton": "Je me lance !"
+  }
+}
