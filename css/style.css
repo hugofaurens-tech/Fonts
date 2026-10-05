@@ -565,3 +565,9 @@ body { padding-top: var(--header-h); }
 @media (prefers-reduced-motion: reduce) {
   .header, .header__inner, .logo img, .logo span, .logo strong, .btn--contact, .nav a:not(.btn) { transition: none; }
 }
+
+/* Page Biens : immeuble calé à droite et un peu plus grand, comme sur la maquette */
+.hero--grey::after { background-position: right center; }
+@media (min-width: 1081px) {
+  .hero--grey::after { background-size: 118% auto; background-position: right 40%; }
+}
