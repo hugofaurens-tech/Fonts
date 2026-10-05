@@ -3,9 +3,19 @@
 CMS.pret.then(() => {
   const reduit = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // En-tête : ombre dès qu'on quitte le haut de page
+  // En-tête : ombre dès qu'on quitte le haut de page ; il se compacte quand on descend
+  // et reprend sa taille dès qu'on remonte.
   const header = document.getElementById("site-header");
-  const surDefilement = () => header.classList.toggle("is-scrolled", window.scrollY > 10);
+  let dernierY = window.scrollY;
+  const surDefilement = () => {
+    const y = window.scrollY;
+    header.classList.toggle("is-scrolled", y > 10);
+    if (header.classList.contains("is-open")) return; // menu mobile ouvert : on ne touche à rien
+    if (y < 120) header.classList.remove("is-compact");
+    else if (y > dernierY + 4) header.classList.add("is-compact");
+    else if (y < dernierY - 4) header.classList.remove("is-compact");
+    if (Math.abs(y - dernierY) > 4) dernierY = y;
+  };
   window.addEventListener("scroll", surDefilement, { passive: true });
   surDefilement();
 

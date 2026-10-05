@@ -24,6 +24,7 @@
   --sans: "Kumbh Sans", system-ui, sans-serif;
   --display: "Montserrat", "Kumbh Sans", sans-serif;
   --header-h: 8.125rem;
+  --header-compact: 5rem;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -58,7 +59,9 @@ ul { list-style: none; margin: 0; padding: 0; }
 .btn[disabled] { opacity: .6; cursor: wait; }
 
 /* ============ EN-TÊTE ============ */
-.header { position: sticky; top: 0; z-index: 50; min-height: var(--header-h); background: var(--white); box-shadow: 0 1px 0 rgba(0,0,0,.06); }
+/* En-tête fixe : la page réserve sa place, il peut donc se compacter sans faire bouger le contenu */
+body { padding-top: var(--header-h); }
+.header { position: fixed; top: 0; left: 0; right: 0; z-index: 50; min-height: var(--header-h); background: var(--white); box-shadow: 0 1px 0 rgba(0,0,0,.06); transition: min-height .35s ease, box-shadow .3s; }
 .header__inner { height: var(--header-h); display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding: 0 3.4375rem; max-width: 100rem; margin: 0 auto; }
 .logo { display: flex; align-items: center; gap: 0.875rem; text-decoration: none; color: var(--ink); flex-shrink: 0; }
 .logo img { height: 4.75rem; width: auto; }
@@ -311,7 +314,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   .contact-grid { grid-template-columns: 1.5fr 1fr; }
 }
 @media (max-width: 1080px) {
-  :root { --header-h: 5.75rem; }
+  :root { --header-h: 5.75rem; --header-compact: 4.2rem; }
   .logo img { height: 3.5rem; }
   .logo strong { font-size: 1.1rem; }
   .logo span { font-size: .95rem; }
@@ -520,7 +523,6 @@ ul { list-style: none; margin: 0; padding: 0; }
 .reveal.is-visible { opacity: 1; transform: none; }
 
 /* En-tête : ombre légère dès qu'on fait défiler */
-.header { transition: box-shadow .3s; }
 .header.is-scrolled { box-shadow: 0 .4rem 1.4rem rgba(0,0,0,.08); }
 
 /* Survols */
@@ -545,4 +547,19 @@ ul { list-style: none; margin: 0; padding: 0; }
   .hero::after, .gallery__main > img.fondu, .step.fondu { animation: none; }
   .reveal { opacity: 1; transform: none; }
   .btn:hover, .socials a:hover, .feature:hover .feature__icon, .benefit:hover .benefit__icon, .perk:hover .perk__icon, .step-card:hover .step-card__icon { transform: none; }
+}
+
+/* En-tête compact quand on descend (classe posée par js/animations.js) */
+.header__inner, .logo img, .logo span, .logo strong, .btn--contact { transition: height .35s ease, min-height .35s ease, font-size .35s ease, padding .35s ease; }
+.header.is-compact { min-height: var(--header-compact); }
+.header.is-compact .header__inner { height: var(--header-compact); }
+.header.is-compact .logo img { height: 3.1rem; }
+.header.is-compact .logo span { font-size: .9rem; }
+.header.is-compact .logo strong { font-size: 1.1rem; }
+.header.is-compact .btn--contact { min-height: 2.9rem; font-size: 1.25rem; padding-block: .4rem; }
+@media (max-width: 1080px) {
+  .header.is-compact .logo img { height: 2.6rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .header, .header__inner, .logo img, .logo span, .logo strong, .btn--contact { transition: none; }
 }
