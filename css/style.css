@@ -24,7 +24,7 @@
   --sans: "Kumbh Sans", system-ui, sans-serif;
   --display: "Montserrat", "Kumbh Sans", sans-serif;
   --header-h: 8.125rem;
-  --header-compact: 5rem;
+  --header-compact: 3.6rem;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -314,7 +314,7 @@ body { padding-top: var(--header-h); }
   .contact-grid { grid-template-columns: 1.5fr 1fr; }
 }
 @media (max-width: 1080px) {
-  :root { --header-h: 5.75rem; --header-compact: 4.2rem; }
+  :root { --header-h: 5.75rem; --header-compact: 3.6rem; }
   .logo img { height: 3.5rem; }
   .logo strong { font-size: 1.1rem; }
   .logo span { font-size: .95rem; }
@@ -550,16 +550,18 @@ body { padding-top: var(--header-h); }
 }
 
 /* En-tête compact quand on descend (classe posée par js/animations.js) */
-.header__inner, .logo img, .logo span, .logo strong, .btn--contact { transition: height .35s ease, min-height .35s ease, font-size .35s ease, padding .35s ease; }
+.header__inner, .logo img, .logo span, .logo strong, .btn--contact, .nav a:not(.btn) { transition: height .35s ease, min-height .35s ease, font-size .35s ease, padding .35s ease; }
 .header.is-compact { min-height: var(--header-compact); }
 .header.is-compact .header__inner { height: var(--header-compact); }
-.header.is-compact .logo img { height: 3.1rem; }
-.header.is-compact .logo span { font-size: .9rem; }
-.header.is-compact .logo strong { font-size: 1.1rem; }
-.header.is-compact .btn--contact { min-height: 2.9rem; font-size: 1.25rem; padding-block: .4rem; }
+.header.is-compact .logo img { height: 2.3rem; }
+.header.is-compact .logo span { font-size: .8rem; }
+.header.is-compact .logo strong { font-size: .95rem; }
+.header.is-compact .btn--contact { min-height: 2.3rem; font-size: 1.05rem; padding-block: .25rem; }
+.header.is-compact .nav a:not(.btn) { font-size: 1.3rem; }
 @media (max-width: 1080px) {
-  .header.is-compact .logo img { height: 2.6rem; }
+  .header.is-compact .logo img { height: 2.2rem; }
+  .header.is-compact .nav a:not(.btn) { font-size: 1.3rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .header, .header__inner, .logo img, .logo span, .logo strong, .btn--contact { transition: none; }
+  .header, .header__inner, .logo img, .logo span, .logo strong, .btn--contact, .nav a:not(.btn) { transition: none; }
 }
