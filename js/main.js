@@ -51,20 +51,37 @@ CMS.pret.then(() => {
     selection.innerHTML = BIENS.filter((b) => b.statut === "vente").slice(0, 3).map(carteBien).join("");
   }
 
-  // Page Biens : filtres + pagination
+  // Page Biens : onglets En vente / Vendus (sans rechargement), filtres + pagination
   const liste = $("#liste-biens");
   if (liste) {
     const PAR_PAGE = 9;
-    const statut = liste.dataset.statut;
     const form = $("#filtres");
     const pager = $("#pagination");
+    const onglets = $(".tabs");
+    const reduit = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const PAGES = {
+      vente: { url: "biens.html", titre: document.title, description: $('meta[name="description"]').content },
+      vendu: { url: "biens-vendus.html", titre: "Biens immobiliers vendus à Paris et en Île-de-France — " + SITE.nom, description: "Biens immobiliers vendus par " + SITE.nom + " à Paris, Levallois-Perret, Neuilly-sur-Seine et dans l'ouest parisien." },
+    };
+    if (liste.dataset.statut === "vendu") {
+      // Page chargée directement en « vendus » : on retrouve les textes de la page « en vente »
+      PAGES.vente.titre = "Biens immobiliers à vendre à Paris et en Île-de-France — " + SITE.nom;
+      PAGES.vente.description = "Appartements haussmanniens, maisons de ville et biens d'exception à vendre à Paris, Levallois-Perret, Neuilly-sur-Seine et dans l'ouest parisien.";
+    }
+    let statut = liste.dataset.statut;
     let resultats = [];
     let page = 1;
 
-    // Remplit les listes déroulantes à partir des biens existants
-    const uniques = (cle) => [...new Set(BIENS.filter((b) => b.statut === statut).map((b) => b[cle]))].sort();
-    uniques("type").forEach((t) => form.type.add(new Option(t[0].toUpperCase() + t.slice(1), t)));
-    uniques("ville").forEach((v) => form.ville.add(new Option(v, v)));
+    // Remplit les listes déroulantes à partir des biens du statut affiché
+    function remplirFiltres() {
+      const uniques = (cle) => [...new Set(BIENS.filter((b) => b.statut === statut).map((b) => b[cle]).filter(Boolean))].sort();
+      const garder = { type: form.type.value, ville: form.ville.value };
+      [form.type, form.ville].forEach((sel) => { while (sel.options.length > 1) sel.remove(1); });
+      uniques("type").forEach((t) => form.type.add(new Option(t[0].toUpperCase() + t.slice(1), t)));
+      uniques("ville").forEach((v) => form.ville.add(new Option(v, v)));
+      form.type.value = [...form.type.options].some((o) => o.value === garder.type) ? garder.type : "";
+      form.ville.value = [...form.ville.options].some((o) => o.value === garder.ville) ? garder.ville : "";
+    }
 
     function filtrer() {
       const min = Number(form.min.value) || 0;
@@ -92,6 +109,51 @@ CMS.pret.then(() => {
       ).join("") + (page < pages ? '<button type="button" class="next" data-page="' + (page + 1) + '" aria-label="Page suivante">›</button>' : "");
     }
 
+    // Change d'onglet sans recharger ni remonter en haut de la page
+    function changerStatut(nouveau, historique = true) {
+      if (nouveau === statut) return;
+      statut = nouveau;
+      const vendu = statut === "vendu";
+      liste.dataset.statut = statut;
+      onglets.classList.toggle("is-vendus", vendu);
+      $$("a", onglets).forEach((a) => {
+        const actif = a.dataset.statut === statut;
+        if (actif) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+      });
+      const sousTitre = $('.hero [data-t^="hero.titre_vend"], .hero [data-t="hero.titre_vente"]');
+      if (sousTitre) sousTitre.innerHTML = CMS.texte(PAGE.hero[vendu ? "titre_vendus" : "titre_vente"]);
+      const titreListe = $('#liste [data-t^="liste.titre"]');
+      document.title = PAGES[statut].titre;
+      $('meta[name="description"]').content = PAGES[statut].description;
+      if (historique) history.pushState({ statut }, "", PAGES[statut].url);
+
+      const appliquer = () => {
+        if (titreListe) titreListe.innerHTML = CMS.texte(PAGE.liste[vendu ? "titre_vendus" : "titre_vente"]);
+        remplirFiltres();
+        filtrer();
+        liste.classList.remove("is-switching");
+      };
+      if (reduit) return appliquer();
+      // Fondu de la liste actuelle, puis les nouvelles cartes apparaissent (js/animations.js)
+      liste.classList.add("is-switching");
+      if (titreListe) titreListe.classList.add("is-switching");
+      setTimeout(() => {
+        appliquer();
+        if (titreListe) titreListe.classList.remove("is-switching");
+      }, 280);
+    }
+
+    onglets.addEventListener("click", (e) => {
+      const a = e.target.closest("a[data-statut]");
+      if (!a) return;
+      e.preventDefault();
+      changerStatut(a.dataset.statut);
+    });
+    window.addEventListener("popstate", () => {
+      changerStatut(location.pathname.endsWith("biens-vendus.html") ? "vendu" : "vente", false);
+    });
+    history.replaceState({ statut }, "");
+
     pager.addEventListener("click", (e) => {
       const b = e.target.closest("[data-page]");
       if (!b) return;
@@ -100,6 +162,7 @@ CMS.pret.then(() => {
       $("#liste").scrollIntoView({ behavior: "smooth" });
     });
     form.addEventListener("submit", (e) => { e.preventDefault(); filtrer(); });
+    remplirFiltres();
     filtrer();
   }
 

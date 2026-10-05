@@ -170,9 +170,15 @@ body { padding-top: var(--header-h); }
 
 /* Onglets En vente / Vendus */
 .tabs-band { background: var(--grey); padding: 5rem 0 0; }
-.tabs { display: flex; justify-content: center; }
-.tabs a { width: 14.25rem; padding: 1.15rem 0; text-align: center; text-decoration: none; border: 6px solid var(--gold); font: 700 1.75rem var(--display); text-transform: uppercase; background: var(--white); }
-.tabs a[aria-current="page"] { background: var(--gold); }
+/* Onglets : le fond doré glisse vers l'onglet actif */
+.tabs { position: relative; display: grid; grid-template-columns: 1fr 1fr; width: fit-content; margin: 0 auto; border: 6px solid var(--gold); background: var(--white); isolation: isolate; }
+.tabs::before { content: ""; position: absolute; inset: 0 50% 0 0; background: var(--gold); z-index: -1; transition: transform .45s cubic-bezier(.65,0,.35,1); }
+.tabs.is-vendus::before { transform: translateX(100%); }
+.tabs a { width: 13.5rem; padding: 1.15rem 0; text-align: center; text-decoration: none; font: 700 1.75rem var(--display); text-transform: uppercase; color: var(--ink); }
+.tabs a:not([aria-current]):hover { background: rgba(194,162,107,.15); }
+/* Liste : fondu pendant le changement d'onglet */
+#liste-biens, #liste .title { transition: opacity .28s ease, transform .28s ease; }
+#liste-biens.is-switching, #liste .title.is-switching { opacity: 0; transform: translateY(.8rem); }
 
 /* Filtres */
 .filters-band { background: var(--grey); border-top: 3px solid #d7d8da; margin-top: 3.5rem; padding: 3.4rem 0 4.6rem; }
@@ -357,7 +363,8 @@ body { padding-top: var(--header-h); }
   .review > p { font-size: 1.25rem; }
   .hero__actions { gap: 1rem; }
   .hero__actions .btn { min-width: 0; width: 100%; max-width: 20rem; }
-  .tabs a { width: 50%; font-size: 1.3rem; }
+  .tabs { width: 100%; }
+  .tabs a { width: auto; font-size: 1.3rem; }
   .filters { grid-template-columns: 1fr; }
   .field-box select, .field-box input, .filters .btn { height: 4rem; font-size: 1.1rem; }
   .filters .btn { font-size: 1.4rem; }
@@ -600,7 +607,7 @@ body { padding-top: var(--header-h); }
   .cookies__actions .btn { flex: 1 1 45%; }
   .cookies__lien { width: 100%; }
 }
-@media (prefers-reduced-motion: reduce) { .cookies { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .cookies, .tabs::before, #liste-biens, #liste .title { transition: none; } }
 
 /* ============ PAGES LÉGALES ============ */
 .legal-hero { background: var(--ink); color: var(--white); padding: 4.5rem 0 3.8rem; text-align: center; }
