@@ -11,7 +11,21 @@
       "surface": 120,
       "pieces": 4,
       "dpe": "C",
-      "photo": "assets/img/bien-haussmannien.jpg"
+      "photo": "assets/img/bien-haussmannien.jpg",
+      "chambres": 1,
+      "sallesDeBain": 1,
+      "etage": 4,
+      "annee": 1945,
+      "chauffage": "Gaz",
+      "charges": 300,
+      "taxeFonciere": 800,
+      "description": "Test test test \n\ntest test test ",
+      "pointsForts": [
+        "proche du métro"
+      ],
+      "equipements": [
+        "Parking"
+      ]
     },
     {
       "id": "duplex-terrasse",
