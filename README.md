@@ -52,6 +52,15 @@ Restent dans le code : le menu, les libellés des champs de formulaire et la mis
 
 Tant que `formEndpoint` est vide, les formulaires affichent la page de confirmation **sans rien envoyer**.
 
+## Cookies
+
+Un bandeau (`js/cookies.js`) demande le consentement à la première visite : « Tout accepter », « Tout refuser »
+ou « Personnaliser ». Le choix est mémorisé 6 mois (cookie `sf_consentement`) et peut être modifié à tout moment
+via le lien **Gestion des cookies** du pied de page.
+
+Pour activer une mesure d'audience, renseigner l'identifiant Google Analytics (`G-…`) dans le back-office :
+**Coordonnées et pied de page → Bandeau cookies**. Le script n'est chargé qu'après accord du visiteur.
+
 ## Aperçu local
 
 ```bash

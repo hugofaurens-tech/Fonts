@@ -37,6 +37,7 @@ CMS.pret.then(function () {
           <li><a href="#">Mentions légales</a></li>
           <li><a href="#">Conditions générales d’utilisation</a></li>
           <li><a href="#">Politique de confidentialité</a></li>
+          <li><a href="#" data-cookies>Gestion des cookies</a></li>
         </ul>
       </div>
       <div>

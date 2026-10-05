@@ -14,5 +14,10 @@
   "instagram": "https://www.instagram.com/sebastien.batignolles.immo/",
   "linkedin": "https://www.linkedin.com/in/s%C3%A9bastien-faurens-927b2b109/",
   "copyright": "Sébastien Faurens — Agent commercial indépendant mandataire Century 21 Les Batignolles",
-  "formEndpoint": ""
+  "formEndpoint": "",
+  "cookies": {
+    "titre": "Votre vie privée",
+    "texte": "Ce site utilise des cookies nécessaires à son fonctionnement et, avec votre accord, des cookies de mesure d’audience pour améliorer nos services. Vous pouvez accepter, refuser ou personnaliser votre choix à tout moment.",
+    "googleAnalytics": ""
+  }
 }

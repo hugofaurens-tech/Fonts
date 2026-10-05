@@ -207,6 +207,16 @@ content:
         label: Adresse d'envoi des formulaires (technique)
         type: string
         description: "Adresse Formspree (ex. https://formspree.io/f/xxxxxxx). Vide : les formulaires n'envoient rien."
+      - name: cookies
+        label: Bandeau cookies
+        type: object
+        fields:
+          - { name: titre, label: Titre du bandeau, type: string }
+          - { name: texte, label: Texte du bandeau, type: text }
+          - name: googleAnalytics
+            label: Identifiant Google Analytics (technique)
+            type: string
+            description: "Ex. G-XXXXXXXXXX. Chargé uniquement si le visiteur accepte la mesure d'audience. Vide : aucune mesure."
 
   - name: pages
     label: Textes des pages
