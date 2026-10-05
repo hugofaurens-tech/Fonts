@@ -48,7 +48,7 @@ CMS.pret.then(() => {
     <div class="cookies__inner">
       <div class="cookies__texte">
         <h2 id="cookies-titre">${e(textes.titre)}</h2>
-        <p>${CMS.texte(textes.texte)}</p>
+        <p>${CMS.texte(textes.texte)} <a href="confidentialite.html">En savoir plus</a></p>
       </div>
       <div class="cookies__details" hidden>
         <label class="cookies__option">

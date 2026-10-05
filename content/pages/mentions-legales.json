@@ -1,0 +1,35 @@
+{
+  "titre": "Mentions légales",
+  "mise_a_jour": "5 octobre 2026",
+  "introduction": "Conformément aux articles 6-III et 19 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l’économie numérique (LCEN), les informations suivantes sont portées à la connaissance des utilisateurs du site.",
+  "sections": [
+    {
+      "titre": "Éditeur du site",
+      "texte": "Sébastien Faurens, agent commercial indépendant en immobilier, mandataire de l’agence Century 21 Patrimoine 17.\n\n- Adresse : 60 rue des Batignolles, 75017 Paris\n- Téléphone : +33 6 65 62 10 91\n- E-mail : sebastien.faurens@century21.com\n- Immatriculation au Registre spécial des agents commerciaux (RSAC) : [À compléter : ville du greffe et numéro]\n- SIREN : [À compléter]\n\nDirecteur de la publication : Sébastien Faurens."
+    },
+    {
+      "titre": "Agence mandante",
+      "texte": "Sébastien Faurens exerce pour le compte de l’agence Century 21 Patrimoine 17, titulaire de la carte professionnelle.\n\n- Raison sociale : [À compléter]\n- Adresse : 60 rue des Batignolles, 75017 Paris\n- Carte professionnelle « Transactions sur immeubles et fonds de commerce » n° [À compléter : CPI …], délivrée par la CCI Paris Île-de-France\n- Garantie financière : [À compléter : organisme, adresse et montant]\n- Assurance responsabilité civile professionnelle : [À compléter : assureur et numéro de contrat]\n- SIREN / RCS : [À compléter]\n- N° de TVA intracommunautaire : [À compléter]\n\nLe réseau Century 21 est composé d’agences juridiquement et financièrement indépendantes."
+    },
+    {
+      "titre": "Hébergement",
+      "texte": "Le site est hébergé par GitHub, Inc. (service GitHub Pages), 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis — https://github.com."
+    },
+    {
+      "titre": "Honoraires",
+      "texte": "Le barème des honoraires de l’agence est disponible sur simple demande et consultable en agence. Les prix affichés sur le site s’entendent honoraires inclus, sauf mention contraire.\n\n[À compléter : lien vers le barème des honoraires en ligne, obligatoire pour les professionnels de l’immobilier.]"
+    },
+    {
+      "titre": "Médiation de la consommation",
+      "texte": "Conformément aux articles L.611-1 et suivants du Code de la consommation, en cas de litige non résolu à l’amiable, le consommateur peut recourir gratuitement au médiateur suivant : [À compléter : nom, adresse et site internet du médiateur de la consommation].\n\nLa plateforme européenne de règlement en ligne des litiges est également accessible à l’adresse https://ec.europa.eu/consumers/odr."
+    },
+    {
+      "titre": "Propriété intellectuelle",
+      "texte": "L’ensemble des éléments du site (textes, photographies, logos, mise en page) est protégé par le droit de la propriété intellectuelle. Toute reproduction, représentation ou adaptation, totale ou partielle, sans autorisation écrite préalable est interdite.\n\nCentury 21 est une marque déposée de son propriétaire. Crédits photographiques : [À compléter]."
+    },
+    {
+      "titre": "Données personnelles et cookies",
+      "texte": "Le traitement des données personnelles collectées sur ce site et l’utilisation des cookies sont décrits dans la politique de confidentialité."
+    }
+  ]
+}

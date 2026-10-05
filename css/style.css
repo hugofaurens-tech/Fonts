@@ -601,3 +601,17 @@ body { padding-top: var(--header-h); }
   .cookies__lien { width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) { .cookies { transition: none; } }
+
+/* ============ PAGES LÉGALES ============ */
+.legal-hero { background: var(--ink); color: var(--white); padding: 4.5rem 0 3.8rem; text-align: center; }
+.legal-hero h1 { font: 700 clamp(2.2rem, 4.5vw, 3.6rem)/1.15 var(--serif); }
+.legal-hero__date { color: var(--gold); margin-top: 1rem; font-size: 1.1rem; }
+.legal__content { width: min(54rem, 100% - 32px); margin-inline: auto; font-size: 1.15rem; line-height: 1.7; }
+.legal__intro { font-size: 1.25rem; padding-bottom: 2.5rem; border-bottom: 3px solid var(--gold); }
+.legal__section { margin-top: 3rem; }
+.legal__section h2 { font: 700 1.9rem/1.2 var(--serif); margin-bottom: 1rem; }
+.legal p + p, .legal p + ul, .legal ul + p { margin-top: 1rem; }
+.legal ul { list-style: none; padding: 0; }
+.legal ul li { position: relative; padding-left: 1.4rem; margin-top: .45rem; }
+.legal ul li::before { content: ""; position: absolute; left: 0; top: .72em; width: .5rem; height: .5rem; background: var(--gold); }
+.cookies p a { color: var(--gold); }

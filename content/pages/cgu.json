@@ -1,0 +1,47 @@
+{
+  "titre": "Conditions générales d’utilisation",
+  "mise_a_jour": "5 octobre 2026",
+  "introduction": "Les présentes conditions générales d’utilisation (CGU) encadrent l’accès et l’utilisation du site de Sébastien Faurens, agent immobilier. En naviguant sur le site, l’utilisateur accepte sans réserve les présentes CGU.",
+  "sections": [
+    {
+      "titre": "1. Objet du site",
+      "texte": "Le site a pour objet de présenter l’activité de Sébastien Faurens, agent commercial indépendant en immobilier, ainsi que des biens proposés à la vente ou déjà vendus, et de permettre aux utilisateurs de prendre contact ou de demander une estimation de leur bien."
+    },
+    {
+      "titre": "2. Accès au site",
+      "texte": "Le site est accessible gratuitement à tout utilisateur disposant d’un accès à internet. Les frais d’accès et d’équipement sont à la charge de l’utilisateur.\n\nL’éditeur s’efforce d’assurer un accès continu au site, sans toutefois pouvoir le garantir. L’accès peut être suspendu, notamment pour des opérations de maintenance, sans que la responsabilité de l’éditeur puisse être engagée."
+    },
+    {
+      "titre": "3. Informations sur les biens",
+      "texte": "Les annonces sont présentées à titre informatif et n’ont pas de valeur contractuelle. Les photographies, surfaces, prix et descriptions sont fournis de bonne foi mais peuvent comporter des erreurs ou ne plus être à jour. Les prix sont indiqués honoraires inclus, sauf mention contraire.\n\nSeuls les documents signés (mandat, compromis ou promesse de vente, acte authentique) engagent les parties."
+    },
+    {
+      "titre": "4. Estimation en ligne",
+      "texte": "Le formulaire d’estimation permet de transmettre une demande. L’évaluation communiquée en retour est indicative : elle ne constitue ni une expertise, ni un avis de valeur engageant, et peut être précisée lors d’une visite du bien. Le service est gratuit et sans engagement."
+    },
+    {
+      "titre": "5. Formulaires et comportement de l’utilisateur",
+      "texte": "L’utilisateur s’engage à fournir des informations exactes et à ne pas utiliser les formulaires à des fins illicites, abusives ou publicitaires. L’éditeur se réserve le droit de ne pas donner suite à une demande manifestement abusive."
+    },
+    {
+      "titre": "6. Responsabilité",
+      "texte": "L’éditeur ne saurait être tenu responsable des dommages directs ou indirects résultant de l’utilisation du site, d’une indisponibilité temporaire, ou de la présence d’un virus malgré les précautions prises."
+    },
+    {
+      "titre": "7. Liens externes",
+      "texte": "Le site contient des liens vers des services tiers (WhatsApp, Instagram, LinkedIn…). L’éditeur n’exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu et à leur politique de confidentialité."
+    },
+    {
+      "titre": "8. Propriété intellectuelle",
+      "texte": "Les contenus du site sont protégés. Leur reproduction est soumise à autorisation, conformément aux mentions légales."
+    },
+    {
+      "titre": "9. Données personnelles",
+      "texte": "Les données transmises via le site sont traitées conformément à la politique de confidentialité."
+    },
+    {
+      "titre": "10. Modification des CGU et droit applicable",
+      "texte": "L’éditeur peut modifier les présentes CGU à tout moment ; la version applicable est celle en ligne lors de la visite. Les présentes CGU sont soumises au droit français. En cas de litige, et après tentative de résolution amiable, les tribunaux français sont compétents."
+    }
+  ]
+}

@@ -28,7 +28,7 @@ CMS.pret.then(() => {
     ".tabs", ".filters", ".choices", ".fields", ".step__nav",
     ".contact-form", ".side-card",
     ".gallery", ".product__head", ".price-box", ".product__main > section", ".features-list", ".product__district",
-    ".thanks .container > *",
+    ".thanks .container > *", ".legal__intro", ".legal__section",
   ].join(",");
 
   // Compteur : « +100 » part de 0 et monte jusqu'à 100

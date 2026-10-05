@@ -12,6 +12,7 @@ Site vitrine statique (HTML / CSS / JavaScript, sans dépendance), reproduit d'a
 | `estimation.html` | Estimation en 4 étapes |
 | `contact.html` | Formulaire de contact |
 | `merci.html` | Confirmation après envoi d'un formulaire |
+| `mentions-legales.html` / `cgu.html` / `confidentialite.html` | Pages légales (à compléter : repérer « [À compléter] ») |
 
 ## Back-office (modifier le contenu)
 
@@ -25,6 +26,7 @@ Sa configuration est dans **`.pages.yml`**.
 | Avis clients | `content/avis.json` |
 | Coordonnées et pied de page | `content/site.json` |
 | Textes des pages (Accueil, Biens, Page d'un bien, Estimation, Contact, Confirmation) | `content/pages/*.json` |
+| Pages légales (Mentions légales, CGU, Politique de confidentialité) | `content/pages/mentions-legales.json`, `cgu.json`, `confidentialite.json` |
 
 ### Mise en route (une seule fois)
 

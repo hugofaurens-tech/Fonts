@@ -417,3 +417,68 @@ content:
           - { name: texte_estimation, label: Texte après une demande d'estimation, type: text }
           - { name: suite, label: Phrase suivante, type: string }
           - { name: lien, label: Lien de retour, type: string }
+
+  - name: legal
+    label: Pages légales
+    type: group
+    items:
+      - name: page-mentions-legales
+        label: Mentions légales
+        type: file
+        path: content/pages/mentions-legales.json
+        format: json
+        fields:
+          - { name: titre, label: Titre, type: string }
+          - { name: mise_a_jour, label: Date de dernière mise à jour, type: string }
+          - { name: introduction, label: Introduction, type: text }
+          - name: sections
+            label: Sections
+            type: object
+            description: "Dans le texte : une ligne vide crée un nouveau paragraphe ; des lignes commençant par « - » forment une liste à puces."
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{titre}"
+            fields:
+              - { name: titre, label: Titre de la section, type: string }
+              - { name: texte, label: Texte, type: text }
+      - name: page-cgu
+        label: Conditions générales d’utilisation
+        type: file
+        path: content/pages/cgu.json
+        format: json
+        fields:
+          - { name: titre, label: Titre, type: string }
+          - { name: mise_a_jour, label: Date de dernière mise à jour, type: string }
+          - { name: introduction, label: Introduction, type: text }
+          - name: sections
+            label: Sections
+            type: object
+            description: "Dans le texte : une ligne vide crée un nouveau paragraphe ; des lignes commençant par « - » forment une liste à puces."
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{titre}"
+            fields:
+              - { name: titre, label: Titre de la section, type: string }
+              - { name: texte, label: Texte, type: text }
+      - name: page-confidentialite
+        label: Politique de confidentialité
+        type: file
+        path: content/pages/confidentialite.json
+        format: json
+        fields:
+          - { name: titre, label: Titre, type: string }
+          - { name: mise_a_jour, label: Date de dernière mise à jour, type: string }
+          - { name: introduction, label: Introduction, type: text }
+          - name: sections
+            label: Sections
+            type: object
+            description: "Dans le texte : une ligne vide crée un nouveau paragraphe ; des lignes commençant par « - » forment une liste à puces."
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{titre}"
+            fields:
+              - { name: titre, label: Titre de la section, type: string }
+              - { name: texte, label: Texte, type: text }

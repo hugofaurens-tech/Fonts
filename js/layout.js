@@ -34,9 +34,9 @@ CMS.pret.then(function () {
         <p class="footer__slogan">${CMS.texte(SITE.slogan)}</p>
         <p class="footer__desc">${CMS.texte(SITE.description)}</p>
         <ul class="footer__legal">
-          <li><a href="#">Mentions légales</a></li>
-          <li><a href="#">Conditions générales d’utilisation</a></li>
-          <li><a href="#">Politique de confidentialité</a></li>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+          <li><a href="cgu.html">Conditions générales d’utilisation</a></li>
+          <li><a href="confidentialite.html">Politique de confidentialité</a></li>
           <li><a href="#" data-cookies>Gestion des cookies</a></li>
         </ul>
       </div>

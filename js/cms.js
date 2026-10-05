@@ -6,6 +6,7 @@
      data-t="chemin"      → texte (les retours à la ligne deviennent <br>)
      data-img="chemin"    → image (attribut src)
      data-bg="chemin"     → image de fond (variable CSS --bg)
+     data-p="chemin"      → texte long : paragraphes (ligne vide) et listes à puces (lignes « - »)
      data-list="chemin"   → liste : le <template> enfant est répété pour chaque élément,
                             ses chemins sont alors relatifs à l'élément.
    Le chemin "site.xxx" désigne content/site.json, les autres le fichier
@@ -27,9 +28,16 @@ const CMS = (() => {
   // Texte saisi dans le back-office → HTML sûr (retours à la ligne conservés)
   const texte = (s) => echapper(s).replace(/\n/g, "<br>");
 
-  // Texte long → paragraphes (séparés par une ligne vide)
+  // Texte long → paragraphes (séparés par une ligne vide).
+  // Un bloc dont toutes les lignes commencent par « - » devient une liste à puces.
   const paragraphes = (s) =>
-    String(s || "").split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean).map((p) => `<p>${texte(p)}</p>`).join("");
+    String(s || "").split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean).map((p) => {
+      const lignes = p.split("\n");
+      if (lignes.every((l) => /^\s*-\s+/.test(l))) {
+        return `<ul>${lignes.map((l) => `<li>${texte(l.replace(/^\s*-\s+/, ""))}</li>`).join("")}</ul>`;
+      }
+      return `<p>${texte(p)}</p>`;
+    }).join("");
 
   const vide = (v) => v === undefined || v === null || v === "" || (Array.isArray(v) && !v.length);
 
@@ -38,6 +46,11 @@ const CMS = (() => {
       const v = lire(donnees, el.dataset.t);
       el.hidden = vide(v);
       if (!vide(v)) el.innerHTML = texte(v);
+    });
+    racine.querySelectorAll("[data-p]").forEach((el) => {
+      const v = lire(donnees, el.dataset.p);
+      el.hidden = vide(v);
+      if (!vide(v)) el.innerHTML = paragraphes(v);
     });
     racine.querySelectorAll("[data-img]").forEach((el) => {
       const v = lire(donnees, el.dataset.img);
